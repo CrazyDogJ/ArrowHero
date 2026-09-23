@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cqvqcmx5ae3lh"]
+
+[ext_resource type="Script" uid="uid://b2wonxwt142my" path="res://Scripts/arrow_spawner.gd" id="1_nj3fj"]
+[ext_resource type="Script" uid="uid://c3nqc6i6frkua" path="res://Scripts/shape_match_size.gd" id="1_vven4"]
+[ext_resource type="PackedScene" uid="uid://dx3gpbsi22qg4" path="res://Prefabs/SingleArrow.tscn" id="2_icaa0"]
+[ext_resource type="Texture2D" uid="uid://cnst7ja4qbf78" path="res://Textures/T_Arrow_Up.png" id="3_0gjx1"]
+[ext_resource type="Texture2D" uid="uid://imrjxk33uhkw" path="res://Textures/T_Arrow_Right.png" id="4_62jqx"]
+[ext_resource type="Texture2D" uid="uid://chgsk50dbgh1e" path="res://Textures/T_Arrow_Down.png" id="5_q62c4"]
+[ext_resource type="Texture2D" uid="uid://dwd4x02crpmbd" path="res://Textures/T_Arrow_Left.png" id="6_h2npq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35w18"]
+
+[node name="ArrowBoard" type="RigidBody2D" unique_id=1392269841 node_paths=PackedStringArray("ArrowContainer")]
+freeze = true
+script = ExtResource("1_nj3fj")
+ArrowPrefab = ExtResource("2_icaa0")
+ArrowContainer = NodePath("CollisionShape2D/PanelContainer/HBoxContainer")
+ArrowUp = ExtResource("3_0gjx1")
+ArrowRight = ExtResource("4_62jqx")
+ArrowDown = ExtResource("5_q62c4")
+ArrowLeft = ExtResource("6_h2npq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2140005897 node_paths=PackedStringArray("target_container")]
+shape = SubResource("RectangleShape2D_35w18")
+script = ExtResource("1_vven4")
+target_container = NodePath("PanelContainer")
+
+[node name="PanelContainer" type="PanelContainer" parent="CollisionShape2D" unique_id=1171964827]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CollisionShape2D/PanelContainer" unique_id=327388251]
+layout_mode = 2
+alignment = 1

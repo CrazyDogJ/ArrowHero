@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://2qj1greqa8br"]
+
+[ext_resource type="Script" uid="uid://b8vebcsxx226p" path="res://Scripts/arrow_board_spawner.gd" id="1_7y77e"]
+[ext_resource type="PackedScene" uid="uid://cqvqcmx5ae3lh" path="res://Prefabs/ArrowBoard.tscn" id="2_bxmvk"]
+[ext_resource type="Script" uid="uid://b3egmx41ktxpp" path="res://Scripts/random_generator.gd" id="7_c3c7e"]
+
+[node name="Control" type="Control" unique_id=1137921222]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ArrowBoardSpawnLocation" type="Node2D" parent="." unique_id=744010971 node_paths=PackedStringArray("seed_generator", "root_node")]
+position = Vector2(622, 405)
+script = ExtResource("1_7y77e")
+arrow_board_prefab = ExtResource("2_bxmvk")
+seed_generator = NodePath("../Generator")
+root_node = NodePath("..")
+
+[node name="Generator" type="Node" parent="." unique_id=493916208]
+script = ExtResource("7_c3c7e")
