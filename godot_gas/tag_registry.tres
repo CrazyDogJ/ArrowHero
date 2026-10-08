@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GameplayTagRegistry" format=3 uid="uid://dakmrdp0x41le"]
+
+[ext_resource type="Script" uid="uid://cbna3i315ffo1" path="res://addons/GodotGAS/gameplay_tag/gameplay_tag_registry.gd" id="1_8i6cp"]
+
+[resource]
+script = ExtResource("1_8i6cp")
+tags = Array[StringName]([&"Ability.Arrowinput", &"Ability.Spawnarrowboard.Input", &"Ability.Spawnarrowboard.Result", &"Arrowboard.Normal"])

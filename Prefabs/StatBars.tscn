@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://b8sf0jdb5cxoh"]
+
+[ext_resource type="Script" uid="uid://cpr421nswlr5v" path="res://Scripts/UI/stat_widget.gd" id="1_pym0u"]
+[ext_resource type="Script" uid="uid://dy8yb7fmxiv4q" path="res://Scripts/UI/stat_progress_bar.gd" id="2_7wabm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pym0u"]
+bg_color = Color(0.94750124, 0.16121134, 1.92523e-07, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wabm"]
+bg_color = Color(0.028472034, 0.52486736, 0.99999994, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Stats" type="VBoxContainer" unique_id=299010212 node_paths=PackedStringArray("hp_bar", "sp_bar")]
+custom_minimum_size = Vector2(500, 100)
+offset_right = 200.0
+offset_bottom = 100.0
+script = ExtResource("1_pym0u")
+hp_bar = NodePath("StatProgressBar_HP")
+sp_bar = NodePath("StatProgressBar_SP")
+
+[node name="StatProgressBar_HP" type="ProgressBar" parent="." unique_id=13640142]
+custom_minimum_size = Vector2(0, 40)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/fill = SubResource("StyleBoxFlat_pym0u")
+value = 50.0
+show_percentage = false
+script = ExtResource("2_7wabm")
+fill_color = Color(0.94750124, 0.16121134, 1.92523e-07, 1)
+metadata/_custom_type_script = "uid://dy8yb7fmxiv4q"
+
+[node name="ValueLabel" type="Label" parent="StatProgressBar_HP" unique_id=1801926250]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="StatProgressBar_SP" type="ProgressBar" parent="." unique_id=2005897385]
+custom_minimum_size = Vector2(0, 30)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/fill = SubResource("StyleBoxFlat_7wabm")
+value = 50.0
+show_percentage = false
+script = ExtResource("2_7wabm")
+fill_color = Color(0.028472034, 0.52486736, 0.99999994, 1)
+metadata/_custom_type_script = "uid://dy8yb7fmxiv4q"
+
+[node name="ValueLabel" type="Label" parent="StatProgressBar_SP" unique_id=1309953455]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true

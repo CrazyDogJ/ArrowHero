@@ -1,0 +1,211 @@
+# LANGUAGE translation for ArrowHero for the following files:
+# res://Scripts/display_seed.gd
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ArrowHero\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: Scripts/UI/display_seed.gd:4
+msgid "seed"
+msgstr "种子"
+
+#: godot_gas/attributes/base_attribute_set.gd:20
+msgid "max_health"
+msgstr "最大生命值"
+
+#: godot_gas/attributes/base_attribute_set.gd:21
+msgid "current_health"
+msgstr "当前生命值"
+
+#: godot_gas/attributes/base_attribute_set.gd:22
+msgid "max_shield"
+msgstr "最大护盾"
+
+#: godot_gas/attributes/base_attribute_set.gd:23
+msgid "current_shield"
+msgstr "当前护盾"
+
+#: godot_gas/attributes/base_attribute_set.gd:24
+msgid "base_damage"
+msgstr "基础伤害"
+
+#: godot_gas/attributes/base_attribute_set.gd:25
+msgid "time_period"
+msgstr "时间"
+
+#: godot_gas/attributes/base_attribute_set.gd:26
+msgid "finish_heal"
+msgstr "完成治疗"
+
+#: godot_gas/attributes/base_attribute_set.gd:27
+msgid "finish_regen"
+msgstr "完成护盾"
+
+#: godot_gas/attributes/base_attribute_set.gd:28
+msgid "gold"
+msgstr "金币"
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:17
+msgid "up_weight"
+msgstr "上 权重"
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:18
+msgid "right_weight"
+msgstr "右 权重"
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:19
+msgid "down_weight"
+msgstr "下 权重"
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:20
+msgid "left_weight"
+msgstr "左 权重"
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:21
+msgid "arrow_num"
+msgstr "箭头数量"
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:22
+msgid "wrong_damage"
+msgstr "犯错伤害"
+
+#: Scripts/UI/keybind_menu.gd:26
+msgid "revert_default_key_binding"
+msgstr "重置绑定"
+
+#: Scripts/UI/keybind_menu.gd:32
+msgid "click_action_and_rebind_key"
+msgstr "点击动作并重新绑定按键"
+
+#: Scripts/UI/keybind_menu.gd:41
+msgid "bind_new_key_esc_quit"
+msgstr "绑定新的按键，Esc退出"
+
+#: Scripts/UI/keybind_menu.gd:61 Scripts/UI/keybind_menu.gd:113
+msgid "cancel_rebind"
+msgstr "取消绑定"
+
+#: Scripts/UI/keybind_menu.gd:86
+msgid "input_settings_saved"
+msgstr "输入设置已保存"
+
+#: Scripts/UI/keybind_menu.gd:88
+msgid "input_rebind_but_save_failed"
+msgstr "输入设置已更新但无法保存"
+
+#: Scripts/UI/keybind_menu.gd:100
+msgid "waiting_key_input"
+msgstr "等待按键输入"
+
+#: Prefabs/PauseContainer.tscn
+msgid "Paused"
+msgstr "暂停"
+
+#: Prefabs/PauseContainer.tscn
+msgid "Input Settings"
+msgstr "输入设置"
+
+#: Prefabs/PauseContainer.tscn
+msgid "Language"
+msgstr "语言"
+
+#: Scripts/UI/input_settings.gd:7
+msgid "Up"
+msgstr "上"
+
+#: Scripts/UI/input_settings.gd:8
+msgid "Down"
+msgstr "下"
+
+#: Scripts/UI/input_settings.gd:9
+msgid "Left"
+msgstr "左"
+
+#: Scripts/UI/input_settings.gd:10
+msgid "Right"
+msgstr "右"
+
+#: Scripts/UI/input_settings.gd:66
+msgid "unbind"
+msgstr "未绑定"
+
+#: Scripts/UI/round_time_label.gd:14
+msgid "round_time"
+msgstr "回合时间"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "large_shield_name"
+msgstr "大护盾"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "large_shield_desc"
+msgstr "{DEFAULT}"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "middle_shield_name"
+msgstr "中护盾"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "middle_shield_desc"
+msgstr "{DEFAULT}"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "small_shield_name"
+msgstr "小护盾"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "small_shield_desc"
+msgstr "{DEFAULT}"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "arrow_badge_name"
+msgstr "箭头徽章"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "arrow_badge_desc"
+msgstr "{DEFAULT}"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "small_knife_name"
+msgstr "小匕首"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "small_knife_desc"
+msgstr "{DEFAULT}"
+
+#: Prefabs/UpgradeCardList.tscn
+msgid "upgrade_cards"
+msgstr "升级卡片"
+
+#: Prefabs/UpgradeCardList.tscn
+msgid "X"
+msgstr ""
+
+#: Scripts/round_end_store.gd:99
+msgid "continue"
+msgstr "继续"
+
+#: Scripts/round_end_store.gd:108
+msgid "refresh"
+msgstr "刷新"
+
+msgid "ArrowHero"
+msgstr "箭头英雄"
+
+#~ msgid "override"
+#~ msgstr "覆盖"
+
+#~ msgid "SEED"
+#~ msgstr "种子"

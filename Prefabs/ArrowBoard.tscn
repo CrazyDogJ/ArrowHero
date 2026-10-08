@@ -1,20 +1,49 @@
 [gd_scene format=3 uid="uid://cqvqcmx5ae3lh"]
 
-[ext_resource type="Script" uid="uid://b2wonxwt142my" path="res://Scripts/arrow_spawner.gd" id="1_nj3fj"]
+[ext_resource type="Script" uid="uid://b2wonxwt142my" path="res://Scripts/arrow_board.gd" id="1_nj3fj"]
 [ext_resource type="Script" uid="uid://c3nqc6i6frkua" path="res://Scripts/shape_match_size.gd" id="1_vven4"]
 [ext_resource type="PackedScene" uid="uid://dx3gpbsi22qg4" path="res://Prefabs/SingleArrow.tscn" id="2_icaa0"]
 [ext_resource type="Texture2D" uid="uid://cnst7ja4qbf78" path="res://Textures/T_Arrow_Up.png" id="3_0gjx1"]
+[ext_resource type="AudioStream" uid="uid://dtg1ve40887aj" path="res://Sounds/288557781.wav" id="3_vqudj"]
 [ext_resource type="Texture2D" uid="uid://imrjxk33uhkw" path="res://Textures/T_Arrow_Right.png" id="4_62jqx"]
+[ext_resource type="AudioStream" uid="uid://cledrlpk4ek8y" path="res://Sounds/823967616.wav" id="4_u6p5v"]
 [ext_resource type="Texture2D" uid="uid://chgsk50dbgh1e" path="res://Textures/T_Arrow_Down.png" id="5_q62c4"]
+[ext_resource type="AudioStream" uid="uid://cmoinv8428e8h" path="res://Sounds/915417228.wav" id="5_ujo5b"]
 [ext_resource type="Texture2D" uid="uid://dwd4x02crpmbd" path="res://Textures/T_Arrow_Left.png" id="6_h2npq"]
+[ext_resource type="AudioStream" uid="uid://c8n7d1a8ptblu" path="res://Sounds/936209903.wav" id="6_yaklu"]
+[ext_resource type="AudioStream" uid="uid://c7fe0i1ejwkat" path="res://Sounds/989483627.wav" id="7_cva6k"]
+[ext_resource type="Shader" uid="uid://5p40sle8ltyt" path="res://Shaders/progress_bar.gdshader" id="8_icaa0"]
+[ext_resource type="AudioStream" uid="uid://cmlyva3l5y66l" path="res://Sounds/994874312.wav" id="8_qju1y"]
+[ext_resource type="AudioStream" uid="uid://cx1inv1khh6yt" path="res://Sounds/1028354474.wav" id="9_eji7k"]
+[ext_resource type="AudioStream" uid="uid://bobnvxbut8ssj" path="res://Sounds/655537164.wav" id="10_pr2mo"]
+[ext_resource type="AudioStream" uid="uid://b6orpqhmj11ws" path="res://Sounds/915401868.wav" id="11_04thf"]
+[ext_resource type="AudioStream" uid="uid://yweoujsipqh5" path="res://Sounds/926662874.wav" id="12_ltjsu"]
+[ext_resource type="AudioStream" uid="uid://0fjfue5kvnxo" path="res://Sounds/965247493.wav" id="13_55vi1"]
+[ext_resource type="Script" uid="uid://bk0f8lwjjxqep" path="res://Scripts/random_play_sound.gd" id="20_u6p5v"]
+[ext_resource type="Script" uid="uid://qmidtlhm852j" path="res://Scripts/arrow_board_logic.gd" id="21_ujo5b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35w18"]
 
-[node name="ArrowBoard" type="RigidBody2D" unique_id=1392269841 node_paths=PackedStringArray("ArrowContainer")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nj3fj"]
+shader = ExtResource("8_icaa0")
+shader_parameter/low_color = Color(0.95, 0.15, 0.15, 1)
+shader_parameter/mid_color = Color(1, 0.8, 0.1, 1)
+shader_parameter/high_color = Color(0.2, 0.85, 0.35, 1)
+shader_parameter/background_color = Color(0.12, 0.12, 0.15, 1)
+
+[node name="ArrowBoard" type="RigidBody2D" unique_id=1392269841 node_paths=PackedStringArray("Logic", "AudioPlayer", "TimeBar", "ArrowContainer")]
+collision_layer = 0
+collision_mask = 0
+inertia = 1.0
 freeze = true
 script = ExtResource("1_nj3fj")
 ArrowPrefab = ExtResource("2_icaa0")
-ArrowContainer = NodePath("CollisionShape2D/PanelContainer/HBoxContainer")
+Logic = NodePath("ArrowBoardLogic")
+AudioPlayer = NodePath("AudioStreamPlayer2D")
+TimeBar = NodePath("CollisionShape2D/PanelContainer/VBoxContainer/ColorRect")
+ArrowContainer = NodePath("CollisionShape2D/PanelContainer/VBoxContainer/HBoxContainer")
+CorrectSounds = Array[AudioStream]([ExtResource("3_vqudj"), ExtResource("4_u6p5v"), ExtResource("5_ujo5b"), ExtResource("6_yaklu"), ExtResource("7_cva6k"), ExtResource("8_qju1y"), ExtResource("9_eji7k")])
+WrongSounds = Array[AudioStream]([ExtResource("10_pr2mo"), ExtResource("11_04thf"), ExtResource("12_ltjsu"), ExtResource("13_55vi1")])
 ArrowUp = ExtResource("3_0gjx1")
 ArrowRight = ExtResource("4_62jqx")
 ArrowDown = ExtResource("5_q62c4")
@@ -26,6 +55,7 @@ script = ExtResource("1_vven4")
 target_container = NodePath("PanelContainer")
 
 [node name="PanelContainer" type="PanelContainer" parent="CollisionShape2D" unique_id=1171964827]
+clip_contents = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -34,10 +64,27 @@ anchor_bottom = 0.5
 offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
-offset_bottom = 20.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CollisionShape2D/PanelContainer" unique_id=327388251]
+[node name="VBoxContainer" type="VBoxContainer" parent="CollisionShape2D/PanelContainer" unique_id=889445130]
+clip_contents = true
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CollisionShape2D/PanelContainer/VBoxContainer" unique_id=327388251]
+layout_mode = 2
+size_flags_vertical = 3
 alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D/PanelContainer/VBoxContainer" unique_id=1644068291]
+material = SubResource("ShaderMaterial_nj3fj")
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1921505520]
+script = ExtResource("20_u6p5v")
+
+[node name="ArrowBoardLogic" type="Node" parent="." unique_id=1238761253]
+script = ExtResource("21_ujo5b")

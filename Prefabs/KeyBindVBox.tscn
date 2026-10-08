@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ceey61rkr3tfx"]
+
+[ext_resource type="Script" uid="uid://covcqmfgxi7ff" path="res://Scripts/UI/keybind_menu.gd" id="1_kylj4"]
+[ext_resource type="Script" uid="uid://cng4owmnv7f7q" path="res://Scripts/UI/common_margin_container.gd" id="1_udfqp"]
+[ext_resource type="Script" uid="uid://dws2yuolin78u" path="res://Scripts/UI/close_button.gd" id="2_o6o0y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oq6tt"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Container" type="PanelContainer" unique_id=1170322520]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oq6tt")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=178201786]
+process_mode = 3
+layout_mode = 2
+script = ExtResource("1_udfqp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=51029424]
+process_mode = 3
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=192841552 node_paths=PackedStringArray("removing_node")]
+process_mode = 3
+custom_minimum_size = Vector2(50, 50)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+script = ExtResource("2_o6o0y")
+removing_node = NodePath("../../..")
+
+[node name="KeyBindVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=992652201]
+process_mode = 3
+layout_mode = 2
+script = ExtResource("1_kylj4")
+metadata/_custom_type_script = "uid://covcqmfgxi7ff"

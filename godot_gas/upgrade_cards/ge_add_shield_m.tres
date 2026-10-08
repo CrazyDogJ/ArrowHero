@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://5lqnarsqwvxq"]
+
+[ext_resource type="Script" uid="uid://b7ovihaaijli7" path="res://addons/GodotGAS/effects/gameplay_execution_calculation.gd" id="1_j0ltk"]
+[ext_resource type="Script" uid="uid://bcow77l0bnh0s" path="res://addons/GodotGAS/effects/gameplay_effect_modifier.gd" id="2_npvwi"]
+[ext_resource type="Script" uid="uid://dwmyx67pysw2w" path="res://godot_gas/upgrade_cards/upgrade_card.gd" id="3_btinm"]
+
+[sub_resource type="Resource" id="Resource_ai41v"]
+script = ExtResource("2_npvwi")
+attribute_name = "max_shield"
+magnitude = 6.0
+metadata/_custom_type_script = "uid://bcow77l0bnh0s"
+
+[resource]
+script = ExtResource("3_btinm")
+card_name = "middle_shield_name"
+card_desc = "middle_shield_desc"
+card_base_price = 30
+card_floating_price = 10
+policy = 2
+modifiers = Array[ExtResource("2_npvwi")]([SubResource("Resource_ai41v")])
+metadata/_custom_type_script = "uid://c81papidngxvg"

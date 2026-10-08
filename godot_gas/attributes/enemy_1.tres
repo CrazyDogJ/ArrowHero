@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="BaseAttributeSet" format=3 uid="uid://dm8wswbxhojcr"]
+
+[ext_resource type="Script" uid="uid://dapo84yjxq6qh" path="res://addons/GodotGAS/attributes/attribute_data.gd" id="1_28tr5"]
+[ext_resource type="Script" uid="uid://bq7rt4mkr1o5v" path="res://godot_gas/attributes/base_attribute_set.gd" id="2_mqn2d"]
+
+[sub_resource type="Resource" id="Resource_xgv6a"]
+script = ExtResource("1_28tr5")
+base_value = 2.0
+current_value = 2.0
+
+[sub_resource type="Resource" id="Resource_6wvpp"]
+script = ExtResource("1_28tr5")
+base_value = 30.0
+current_value = 30.0
+
+[sub_resource type="Resource" id="Resource_b63nt"]
+script = ExtResource("1_28tr5")
+base_value = 10.0
+current_value = 10.0
+
+[sub_resource type="Resource" id="Resource_aq24f"]
+script = ExtResource("1_28tr5")
+metadata/_custom_type_script = "uid://dapo84yjxq6qh"
+
+[sub_resource type="Resource" id="Resource_ktrke"]
+script = ExtResource("1_28tr5")
+base_value = 2.0
+current_value = 2.0
+metadata/_custom_type_script = "uid://dapo84yjxq6qh"
+
+[sub_resource type="Resource" id="Resource_48rs0"]
+script = ExtResource("1_28tr5")
+base_value = 20.0
+current_value = 20.0
+metadata/_custom_type_script = "uid://dapo84yjxq6qh"
+
+[sub_resource type="Resource" id="Resource_ajmap"]
+script = ExtResource("1_28tr5")
+base_value = 30.0
+current_value = 30.0
+
+[sub_resource type="Resource" id="Resource_4ho0b"]
+script = ExtResource("1_28tr5")
+base_value = 10.0
+current_value = 10.0
+
+[sub_resource type="Resource" id="Resource_ql4jk"]
+script = ExtResource("1_28tr5")
+base_value = 2.5
+current_value = 2.5
+
+[resource]
+script = ExtResource("2_mqn2d")
+max_health = SubResource("Resource_ajmap")
+current_health = SubResource("Resource_6wvpp")
+max_shield = SubResource("Resource_4ho0b")
+current_shield = SubResource("Resource_b63nt")
+base_damage = SubResource("Resource_xgv6a")
+time_period = SubResource("Resource_ql4jk")
+finish_heal = SubResource("Resource_aq24f")
+finish_regen = SubResource("Resource_ktrke")
+gold = SubResource("Resource_48rs0")
+metadata/_custom_type_script = "uid://bq7rt4mkr1o5v"

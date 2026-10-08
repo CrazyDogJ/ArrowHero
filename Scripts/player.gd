@@ -1,0 +1,94 @@
+extends Node
+
+class_name MainPlayer
+
+const ah_inputs = preload("res://Scripts/ah_input.gd")
+const enums = preload("res://Scripts/enums.gd")
+
+const tags = preload("res://godot_gas/gameplay_tags.gd")
+const ga_arrow_input = preload("res://godot_gas/abilities/ga_arrow_input.gd")
+const ga_spawn_arrow_board = preload("res://godot_gas/abilities/ga_spawn_arrow_board.gd")
+
+@export var loc_node : CanvasItem
+@export var enemy_manager : EnemyManager
+
+@onready var asc : AbilitySystemComponent = $AbilitySystemComponent
+
+@export_category("Ability System")
+@export var abilities : Array[PackedScene]
+@export var effects : Array[GameplayEffect]
+@export var wrong_damage_effect : GameplayEffect
+@export var finish_effect : GameplayEffect
+@export var attack_effect : GameplayEffect
+
+var current_attack_board : ArrowBoard
+var is_round_start : bool = false
+
+func spawn_board() -> void:
+	var payload : ga_spawn_arrow_board.SpawnArrowBoardPayload = ga_spawn_arrow_board.SpawnArrowBoardPayload.new(self, loc_node, tags.Arrowboard_Normal)
+	asc.send_gameplay_event(tags.Ability_Spawnarrowboard_Input, payload)
+
+func destroy_board() -> void:
+	if is_instance_valid(current_attack_board):
+		current_attack_board.queue_free()
+
+func process_input(event: InputEvent) -> void:
+	if is_instance_valid(current_attack_board):
+		current_attack_board.Logic._input(event)
+
+func _attack_board_press(Index : int, ArrowDirection : enums.ArrowDirection, ArrowResult : enums.ArrowState) -> void:
+	if ArrowResult == enums.ArrowState.Wrong:
+		asc.apply_gameplay_effect(wrong_damage_effect)
+
+func _attack_board_finish(ArrowDirections : Array[enums.ArrowDirection], ArrowResults : Array[enums.ArrowState], TimeRemain : float) -> void:
+	if !is_round_start:
+		return
+	current_attack_board = null
+	asc.apply_gameplay_effect(finish_effect)
+	if is_instance_valid(enemy_manager) and is_instance_valid(enemy_manager.current_enemy) and is_instance_valid(enemy_manager.current_enemy.get_ability_component()):
+		var base_damage : float = asc.get_attribute("base_damage").current_value
+		var correct_num : int = enums.get_correct_num(ArrowResults)
+		var damage : float = correct_num * base_damage
+		var instigator = asc.get_parent() if asc else get_parent()
+		var context = GameplayEffectContext.new(instigator)
+		var spec = GameplayEffectSpec.new(attack_effect, context, damage)
+		asc.apply_effect_spec_to_target(spec, enemy_manager.current_enemy.get_ability_component())
+	spawn_board()
+
+func update_current_attack_board(event_tag: StringName, payload: Variant) -> void:
+	if event_tag == tags.Ability_Spawnarrowboard_Result:
+		var spawn_result : ga_spawn_arrow_board.ResultArrowBoardPayload = payload
+		if is_instance_valid(spawn_result):
+			if spawn_result.tag == tags.Arrowboard_Normal:
+				current_attack_board = spawn_result.arrow_board
+				current_attack_board.Logic.input_pressed.connect(_attack_board_press)
+				current_attack_board.Logic.input_finished.connect(_attack_board_finish)
+
+func _gameplay_event_received(event_tag: StringName, payload: Variant) -> void:
+	update_current_attack_board(event_tag, payload)
+
+func _on_attribute_change(attribute_name: String, old_value: float, new_value: float, effect_spec: GameplayEffectSpec) -> void:
+	if attribute_name == "current_health":
+		if new_value <= 0:
+			print("dead")
+			
+func _ready() -> void:
+	for ab in abilities:
+		var loaded_ability : GameplayAbility = ab.instantiate()
+		asc.grant_ability(loaded_ability)
+	for ef in effects:
+		asc.apply_gameplay_effect(ef, asc, 1.0)
+	asc.gameplay_event_received.connect(_gameplay_event_received)
+	asc.attribute_changed.connect(_on_attribute_change)
+
+func _input(event: InputEvent) -> void:
+	if ah_inputs.is_inputting_arrow_keys(event):
+		asc.send_gameplay_event(tags.Ability_Arrowinput, event)
+
+func round_start() -> void:
+	is_round_start = true
+	spawn_board()
+
+func round_end() -> void:
+	is_round_start = false
+	destroy_board()

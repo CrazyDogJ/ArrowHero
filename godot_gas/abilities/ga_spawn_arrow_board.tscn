@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dyl7u2ftb553i"]
+
+[ext_resource type="Script" uid="uid://drjeflhpqq27p" path="res://godot_gas/abilities/ga_spawn_arrow_board.gd" id="1_wkvvu"]
+[ext_resource type="PackedScene" uid="uid://cqvqcmx5ae3lh" path="res://Prefabs/ArrowBoard.tscn" id="2_ootyv"]
+
+[node name="ga_spawn_arrow_board" type="Node" unique_id=119319327]
+script = ExtResource("1_wkvvu")
+arrow_board_prefab = ExtResource("2_ootyv")

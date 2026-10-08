@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dbqoiqamlax01"]
+
+[ext_resource type="Script" uid="uid://bnkw3tq8kdoqa" path="res://Scripts/UI/upgrade_card_visual.gd" id="1_7hm1r"]
+[ext_resource type="Script" uid="uid://cng4owmnv7f7q" path="res://Scripts/UI/common_margin_container.gd" id="1_f8wq4"]
+
+[node name="UpgradeCardVisual" type="PanelContainer" unique_id=1210935038 node_paths=PackedStringArray("card_name_label", "card_desc_label", "card_icon_rect")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -119.5
+offset_right = 72.0
+offset_bottom = 119.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7hm1r")
+card_name_label = NodePath("MarginContainer/VBoxContainer/PanelContainer2/NameLabel")
+card_desc_label = NodePath("MarginContainer/VBoxContainer/PanelContainer/DescLabel")
+card_icon_rect = NodePath("MarginContainer/VBoxContainer/TextureRect")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1742403314]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_f8wq4")
+margin_value = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2001357550]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1818379326]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1839510570]
+custom_minimum_size = Vector2(128, -1)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer2" unique_id=1997781696]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "name of card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1744014836]
+custom_minimum_size = Vector2(128, 128)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer" unique_id=553532254]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "this is a long long long text to display in my card description"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

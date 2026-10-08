@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ArrowWeightsAttributeSet" format=3 uid="uid://2dmegv1podc0"]
+
+[ext_resource type="Script" uid="uid://dapo84yjxq6qh" path="res://addons/GodotGAS/attributes/attribute_data.gd" id="1_p0mvo"]
+[ext_resource type="Script" uid="uid://3a20bsoax8ds" path="res://godot_gas/attributes/arrow_weights_attribute_set.gd" id="2_pk1sf"]
+
+[sub_resource type="Resource" id="Resource_anpmj"]
+script = ExtResource("1_p0mvo")
+base_value = 4.0
+current_value = 4.0
+
+[sub_resource type="Resource" id="Resource_vdxlv"]
+script = ExtResource("1_p0mvo")
+base_value = 1.0
+current_value = 1.0
+
+[sub_resource type="Resource" id="Resource_au781"]
+script = ExtResource("1_p0mvo")
+base_value = 1.0
+current_value = 1.0
+
+[sub_resource type="Resource" id="Resource_iepgc"]
+script = ExtResource("1_p0mvo")
+base_value = 1.0
+current_value = 1.0
+
+[sub_resource type="Resource" id="Resource_pu2l5"]
+script = ExtResource("1_p0mvo")
+base_value = 1.0
+current_value = 1.0
+
+[sub_resource type="Resource" id="Resource_xsrfw"]
+script = ExtResource("1_p0mvo")
+base_value = 1.0
+current_value = 1.0
+
+[resource]
+script = ExtResource("2_pk1sf")
+up_weight = SubResource("Resource_pu2l5")
+right_weight = SubResource("Resource_iepgc")
+down_weight = SubResource("Resource_vdxlv")
+left_weight = SubResource("Resource_au781")
+arrow_num = SubResource("Resource_anpmj")
+wrong_damage = SubResource("Resource_xsrfw")
+metadata/_custom_type_script = "uid://3a20bsoax8ds"

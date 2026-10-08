@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bft4bnlyhrp1m"]
+
+[ext_resource type="Script" uid="uid://de32t6xgpke3i" path="res://Scripts/player.gd" id="1_t8lmw"]
+[ext_resource type="PackedScene" uid="uid://cquepua8ncy4h" path="res://godot_gas/abilities/ga_arrow_input.tscn" id="2_k2qb3"]
+[ext_resource type="PackedScene" uid="uid://dyl7u2ftb553i" path="res://godot_gas/abilities/ga_spawn_arrow_board.tscn" id="3_wuv02"]
+[ext_resource type="Resource" uid="uid://bbtpnf4utcox7" path="res://godot_gas/effects/ge_wrong_damage.tres" id="4_8afax"]
+[ext_resource type="Resource" uid="uid://cgur54vm4arik" path="res://godot_gas/effects/ge_arrow_board_finish.tres" id="5_t7w7j"]
+[ext_resource type="Resource" uid="uid://bk064fqreokdd" path="res://godot_gas/effects/ge_attack.tres" id="6_08l6w"]
+[ext_resource type="Script" uid="uid://cbrvrpcenj2cn" path="res://addons/GodotGAS/components/ability_system_component.gd" id="7_o7xy3"]
+[ext_resource type="Script" uid="uid://bhr4dsrpc4jw8" path="res://addons/GodotGAS/attributes/attribute_set.gd" id="8_qm8rn"]
+[ext_resource type="Resource" uid="uid://dbj5c5gk6k5xa" path="res://godot_gas/attributes/player_base_attributes.tres" id="9_aw6xh"]
+[ext_resource type="Resource" uid="uid://2dmegv1podc0" path="res://godot_gas/attributes/player_weights.tres" id="10_tkui5"]
+[ext_resource type="Script" uid="uid://dapo84yjxq6qh" path="res://addons/GodotGAS/attributes/attribute_data.gd" id="11_wuv02"]
+[ext_resource type="Script" uid="uid://cdb5ajvne1dno" path="res://godot_gas/attributes/store_attribute_set.gd" id="12_8afax"]
+[ext_resource type="Script" uid="uid://dopimpgcd72nk" path="res://Scripts/upgrade_cards_manager.gd" id="13_8afax"]
+
+[sub_resource type="Resource" id="Resource_t7w7j"]
+script = ExtResource("11_wuv02")
+base_value = 1.0
+current_value = 1.0
+
+[sub_resource type="Resource" id="Resource_08l6w"]
+script = ExtResource("11_wuv02")
+base_value = 3.0
+current_value = 3.0
+
+[sub_resource type="Resource" id="Resource_t8lmw"]
+script = ExtResource("12_8afax")
+free_refresh = SubResource("Resource_t7w7j")
+store_item_num = SubResource("Resource_08l6w")
+metadata/_custom_type_script = "uid://cdb5ajvne1dno"
+
+[node name="Player" type="Node" unique_id=1115757612]
+script = ExtResource("1_t8lmw")
+abilities = Array[PackedScene]([ExtResource("2_k2qb3"), ExtResource("3_wuv02")])
+wrong_damage_effect = ExtResource("4_8afax")
+finish_effect = ExtResource("5_t7w7j")
+attack_effect = ExtResource("6_08l6w")
+
+[node name="AbilitySystemComponent" type="Node" parent="." unique_id=65907315]
+script = ExtResource("7_o7xy3")
+attribute_sets = Array[ExtResource("8_qm8rn")]([ExtResource("9_aw6xh"), ExtResource("10_tkui5"), SubResource("Resource_t8lmw")])
+
+[node name="UpgradeCardsManager" type="Node" parent="." unique_id=1139941984]
+script = ExtResource("13_8afax")
+metadata/_custom_type_script = "uid://dopimpgcd72nk"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GameplayEffect" format=3 uid="uid://bk064fqreokdd"]
+
+[ext_resource type="Script" uid="uid://b7ovihaaijli7" path="res://addons/GodotGAS/effects/gameplay_execution_calculation.gd" id="1_o6rv3"]
+[ext_resource type="Script" uid="uid://bcow77l0bnh0s" path="res://addons/GodotGAS/effects/gameplay_effect_modifier.gd" id="2_0qblx"]
+[ext_resource type="Script" uid="uid://s0h6pjhmbkc3" path="res://godot_gas/effects/gec_attack.gd" id="2_6lx6l"]
+[ext_resource type="Script" uid="uid://c81papidngxvg" path="res://addons/GodotGAS/effects/gameplay_effect.gd" id="3_6lx6l"]
+
+[sub_resource type="Resource" id="Resource_mwnln"]
+script = ExtResource("2_6lx6l")
+metadata/_custom_type_script = "uid://s0h6pjhmbkc3"
+
+[resource]
+script = ExtResource("3_6lx6l")
+executions = Array[ExtResource("1_o6rv3")]([SubResource("Resource_mwnln")])
+metadata/_custom_type_script = "uid://c81papidngxvg"

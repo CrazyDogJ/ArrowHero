@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://2qj1greqa8br"]
+
+[ext_resource type="Script" uid="uid://b8vebcsxx226p" path="res://Scripts/arrow_board_spawner.gd" id="1_7y77e"]
+[ext_resource type="PackedScene" uid="uid://cqvqcmx5ae3lh" path="res://Prefabs/ArrowBoard.tscn" id="2_bxmvk"]
+[ext_resource type="Script" uid="uid://de32t6xgpke3i" path="res://Scripts/player.gd" id="4_mqovx"]
+[ext_resource type="PackedScene" uid="uid://cquepua8ncy4h" path="res://godot_gas/abilities/ga_arrow_input.tscn" id="4_td13q"]
+[ext_resource type="Script" uid="uid://cbrvrpcenj2cn" path="res://addons/GodotGAS/components/ability_system_component.gd" id="4_ug444"]
+[ext_resource type="Script" uid="uid://bhr4dsrpc4jw8" path="res://addons/GodotGAS/attributes/attribute_set.gd" id="5_guvdo"]
+[ext_resource type="Resource" uid="uid://xiot53w8n1nn" path="res://Scripts/Attributes/player_attributes.tres" id="5_l455d"]
+[ext_resource type="Resource" uid="uid://dbj5c5gk6k5xa" path="res://godot_gas/attributes/player_base_attributes.tres" id="6_guvdo"]
+[ext_resource type="Script" uid="uid://cr6wk6x2nfwpo" path="res://Scripts/display_seed.gd" id="6_l455d"]
+[ext_resource type="Script" uid="uid://b3egmx41ktxpp" path="res://Scripts/random_generator.gd" id="7_c3c7e"]
+[ext_resource type="Script" uid="uid://bc0j8pjdi7k6n" path="res://Scripts/UI/localization_options.gd" id="7_gcpam"]
+
+[node name="Control" type="Control" unique_id=1137921222]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Generator" type="Node" parent="." unique_id=493916208]
+script = ExtResource("7_c3c7e")
+
+[node name="Player" type="Node" parent="." unique_id=1332128912 node_paths=PackedStringArray("hp_text", "shield_text")]
+script = ExtResource("4_mqovx")
+player_attributes = ExtResource("5_l455d")
+hp_text = NodePath("../Hp")
+shield_text = NodePath("../Shield")
+abilities = Array[PackedScene]([ExtResource("4_td13q")])
+
+[node name="AbilitySystemComponent" type="Node" parent="Player" unique_id=1987730314]
+script = ExtResource("4_ug444")
+attribute_sets = Array[ExtResource("5_guvdo")]([ExtResource("6_guvdo")])
+
+[node name="ArrowBoardSpawnLocation" type="Node2D" parent="." unique_id=744010971 node_paths=PackedStringArray("seed_generator", "main_player", "root_node")]
+position = Vector2(622, 405)
+script = ExtResource("1_7y77e")
+arrow_board_prefab = ExtResource("2_bxmvk")
+seed_generator = NodePath("../Generator")
+main_player = NodePath("../Player")
+root_node = NodePath("..")
+
+[node name="Hp" type="Label" parent="." unique_id=168561299]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 387.0
+offset_right = 262.0
+offset_bottom = 410.0
+
+[node name="Shield" type="Label" parent="." unique_id=1448945335]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 459.0
+offset_right = 257.0
+offset_bottom = 482.0
+
+[node name="Seed" type="Label" parent="." unique_id=1991449564 node_paths=PackedStringArray("random_generator")]
+layout_mode = 0
+offset_left = 597.0
+offset_top = 69.0
+offset_right = 637.0
+offset_bottom = 92.0
+script = ExtResource("6_l455d")
+random_generator = NodePath("../Generator")
+
+[node name="OptionButton" type="OptionButton" parent="." unique_id=50016139]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+script = ExtResource("7_gcpam")

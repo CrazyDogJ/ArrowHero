@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="BaseAttributeSet" format=3 uid="uid://dbj5c5gk6k5xa"]
+
+[ext_resource type="Script" uid="uid://bq7rt4mkr1o5v" path="res://godot_gas/attributes/base_attribute_set.gd" id="1_kqlsv"]
+[ext_resource type="Script" uid="uid://dapo84yjxq6qh" path="res://addons/GodotGAS/attributes/attribute_data.gd" id="1_sg4s4"]
+
+[sub_resource type="Resource" id="Resource_enn0t"]
+script = ExtResource("1_sg4s4")
+base_value = 1.0
+current_value = 1.0
+
+[sub_resource type="Resource" id="Resource_c4mn4"]
+script = ExtResource("1_sg4s4")
+base_value = 25.0
+current_value = 25.0
+
+[sub_resource type="Resource" id="Resource_ctfpj"]
+script = ExtResource("1_sg4s4")
+base_value = 5.0
+current_value = 5.0
+
+[sub_resource type="Resource" id="Resource_c8mi2"]
+script = ExtResource("1_sg4s4")
+metadata/_custom_type_script = "uid://dapo84yjxq6qh"
+
+[sub_resource type="Resource" id="Resource_nkvk2"]
+script = ExtResource("1_sg4s4")
+base_value = 1.0
+current_value = 1.0
+metadata/_custom_type_script = "uid://dapo84yjxq6qh"
+
+[sub_resource type="Resource" id="Resource_28tr5"]
+script = ExtResource("1_sg4s4")
+metadata/_custom_type_script = "uid://dapo84yjxq6qh"
+
+[sub_resource type="Resource" id="Resource_uqbx8"]
+script = ExtResource("1_sg4s4")
+base_value = 25.0
+current_value = 25.0
+
+[sub_resource type="Resource" id="Resource_gvmse"]
+script = ExtResource("1_sg4s4")
+base_value = 5.0
+current_value = 5.0
+
+[sub_resource type="Resource" id="Resource_0s76s"]
+script = ExtResource("1_sg4s4")
+base_value = 3.0
+current_value = 3.0
+
+[resource]
+script = ExtResource("1_kqlsv")
+max_health = SubResource("Resource_uqbx8")
+current_health = SubResource("Resource_c4mn4")
+max_shield = SubResource("Resource_gvmse")
+current_shield = SubResource("Resource_ctfpj")
+base_damage = SubResource("Resource_enn0t")
+time_period = SubResource("Resource_0s76s")
+finish_heal = SubResource("Resource_c8mi2")
+finish_regen = SubResource("Resource_nkvk2")
+gold = SubResource("Resource_28tr5")
+metadata/_custom_type_script = "uid://bq7rt4mkr1o5v"

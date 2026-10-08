@@ -1,0 +1,211 @@
+# LANGUAGE translation for ArrowHero for the following files:
+# res://Scripts/display_seed.gd
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ArrowHero\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: Scripts/UI/display_seed.gd:4
+msgid "seed"
+msgstr "Seed"
+
+#: godot_gas/attributes/base_attribute_set.gd:20
+msgid "max_health"
+msgstr "Max Health"
+
+#: godot_gas/attributes/base_attribute_set.gd:21
+msgid "current_health"
+msgstr "Current Health"
+
+#: godot_gas/attributes/base_attribute_set.gd:22
+msgid "max_shield"
+msgstr "Max Shield"
+
+#: godot_gas/attributes/base_attribute_set.gd:23
+msgid "current_shield"
+msgstr "Current Shield"
+
+#: godot_gas/attributes/base_attribute_set.gd:24
+msgid "base_damage"
+msgstr "Base Damage"
+
+#: godot_gas/attributes/base_attribute_set.gd:25
+msgid "time_period"
+msgstr "Time Period"
+
+#: godot_gas/attributes/base_attribute_set.gd:26
+msgid "finish_heal"
+msgstr "Finish Heal"
+
+#: godot_gas/attributes/base_attribute_set.gd:27
+msgid "finish_regen"
+msgstr "Finish Regen"
+
+#: godot_gas/attributes/base_attribute_set.gd:28
+msgid "gold"
+msgstr "Gold"
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:17
+msgid "up_weight"
+msgstr "Up Weight"
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:18
+msgid "right_weight"
+msgstr "Right Weight"
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:19
+msgid "down_weight"
+msgstr "Down Weight"
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:20
+msgid "left_weight"
+msgstr "Left Weight"
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:21
+msgid "arrow_num"
+msgstr "Arrow Num"
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:22
+msgid "wrong_damage"
+msgstr "Wrong Damage"
+
+#: Scripts/UI/keybind_menu.gd:26
+msgid "revert_default_key_binding"
+msgstr "Revert Default Settings"
+
+#: Scripts/UI/keybind_menu.gd:32
+msgid "click_action_and_rebind_key"
+msgstr "Click action to rebind key"
+
+#: Scripts/UI/keybind_menu.gd:41
+msgid "bind_new_key_esc_quit"
+msgstr "Press key to rebind, Esc cancel"
+
+#: Scripts/UI/keybind_menu.gd:61 Scripts/UI/keybind_menu.gd:113
+msgid "cancel_rebind"
+msgstr "Cancel rebind"
+
+#: Scripts/UI/keybind_menu.gd:86
+msgid "input_settings_saved"
+msgstr "Input settings saved"
+
+#: Scripts/UI/keybind_menu.gd:88
+msgid "input_rebind_but_save_failed"
+msgstr "Input rebind but save failed"
+
+#: Scripts/UI/keybind_menu.gd:100
+msgid "waiting_key_input"
+msgstr "Waiting for key pressed"
+
+#: Prefabs/PauseContainer.tscn
+msgid "Paused"
+msgstr "Paused"
+
+#: Prefabs/PauseContainer.tscn
+msgid "Input Settings"
+msgstr "Input Settings"
+
+#: Prefabs/PauseContainer.tscn
+msgid "Language"
+msgstr "Language"
+
+#: Scripts/UI/input_settings.gd:7
+msgid "Up"
+msgstr "Up"
+
+#: Scripts/UI/input_settings.gd:8
+msgid "Down"
+msgstr "Down"
+
+#: Scripts/UI/input_settings.gd:9
+msgid "Left"
+msgstr "Left"
+
+#: Scripts/UI/input_settings.gd:10
+msgid "Right"
+msgstr "Right"
+
+#: Scripts/UI/input_settings.gd:66
+msgid "unbind"
+msgstr "Unbind"
+
+#: Scripts/UI/round_time_label.gd:14
+msgid "round_time"
+msgstr "Round Time"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "large_shield_name"
+msgstr "Large Shield"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "large_shield_desc"
+msgstr "{DEFAULT}"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "middle_shield_name"
+msgstr "Middle Shield"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "middle_shield_desc"
+msgstr "{DEFAULT}"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "small_shield_name"
+msgstr "Small Shield"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "small_shield_desc"
+msgstr "{DEFAULT}"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "arrow_badge_name"
+msgstr "Arrow Badge"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "arrow_badge_desc"
+msgstr "{DEFAULT}"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "small_knife_name"
+msgstr "Small Knife"
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "small_knife_desc"
+msgstr "{DEFAULT}"
+
+#: Prefabs/UpgradeCardList.tscn
+msgid "upgrade_cards"
+msgstr "Upgrade Cards"
+
+#: Prefabs/UpgradeCardList.tscn
+msgid "X"
+msgstr ""
+
+#: Scripts/round_end_store.gd:99
+msgid "continue"
+msgstr "Continue"
+
+#: Scripts/round_end_store.gd:108
+msgid "refresh"
+msgstr "Refresh"
+
+msgid "ArrowHero"
+msgstr "Arrow Hero"
+
+#~ msgid "override"
+#~ msgstr "Override"
+
+#~ msgid "SEED"
+#~ msgstr "Seed"

@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://2qj1greqa8br"]
 
-[ext_resource type="Script" uid="uid://b8vebcsxx226p" path="res://Scripts/arrow_board_spawner.gd" id="1_7y77e"]
-[ext_resource type="PackedScene" uid="uid://cqvqcmx5ae3lh" path="res://Prefabs/ArrowBoard.tscn" id="2_bxmvk"]
+[ext_resource type="PackedScene" uid="uid://bft4bnlyhrp1m" path="res://Prefabs/Player.tscn" id="2_v324j"]
+[ext_resource type="Script" uid="uid://cr6wk6x2nfwpo" path="res://Scripts/UI/display_seed.gd" id="6_l455d"]
 [ext_resource type="Script" uid="uid://b3egmx41ktxpp" path="res://Scripts/random_generator.gd" id="7_c3c7e"]
+[ext_resource type="PackedScene" uid="uid://bfaks8wbdyuwk" path="res://Prefabs/RoundEndStore.tscn" id="10_oiibt"]
+[ext_resource type="PackedScene" uid="uid://b8sf0jdb5cxoh" path="res://Prefabs/StatBars.tscn" id="16_apudk"]
+[ext_resource type="Script" uid="uid://cng4owmnv7f7q" path="res://Scripts/UI/common_margin_container.gd" id="17_mwnln"]
+[ext_resource type="Script" uid="uid://bfjvwpu2qvqjv" path="res://Scripts/enemy_manager.gd" id="17_u7sq0"]
+[ext_resource type="PackedScene" uid="uid://dqtqlg7g3532y" path="res://Prefabs/Enemy_Base.tscn" id="18_mwnln"]
+[ext_resource type="PackedScene" uid="uid://j0fhpx3gclia" path="res://Prefabs/RoundTime.tscn" id="19_48rs0"]
+[ext_resource type="PackedScene" uid="uid://defw74o5n6yn3" path="res://Prefabs/ArrowStatsWidget.tscn" id="20_368fl"]
+[ext_resource type="Script" uid="uid://d2tpstg5d88al" path="res://Scripts/UI/round_time_label.gd" id="20_jgxq8"]
+[ext_resource type="PackedScene" uid="uid://dfijet26wu0tm" path="res://Prefabs/PauseContainer.tscn" id="21_0t882"]
+[ext_resource type="PackedScene" uid="uid://mt3gqsvuof7i" path="res://Prefabs/PauseButton.tscn" id="21_jgxq8"]
 
 [node name="Control" type="Control" unique_id=1137921222]
 layout_mode = 3
@@ -12,12 +22,132 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ArrowBoardSpawnLocation" type="Node2D" parent="." unique_id=744010971 node_paths=PackedStringArray("seed_generator", "root_node")]
-position = Vector2(622, 405)
-script = ExtResource("1_7y77e")
-arrow_board_prefab = ExtResource("2_bxmvk")
-seed_generator = NodePath("../Generator")
-root_node = NodePath("..")
-
 [node name="Generator" type="Node" parent="." unique_id=493916208]
 script = ExtResource("7_c3c7e")
+
+[node name="Player" parent="." unique_id=1115757612 node_paths=PackedStringArray("loc_node", "enemy_manager") instance=ExtResource("2_v324j")]
+loc_node = NodePath("../ArrowBoardSpawnLocation")
+enemy_manager = NodePath("../EnemyManager")
+
+[node name="ArrowBoardSpawnLocation" type="Control" parent="." unique_id=848064761]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Seed" type="Label" parent="." unique_id=1991449564]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.99
+anchor_right = 0.5
+anchor_bottom = 0.99
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("6_l455d")
+
+[node name="EnemyManager" type="Node" parent="." unique_id=1717626328 node_paths=PackedStringArray("enemy_stat_bar", "enemy_time_bar", "player")]
+script = ExtResource("17_u7sq0")
+enemy_stat_bar = NodePath("../EnemyStatsBox/EnemyStats")
+enemy_time_bar = NodePath("../EnemyStatsBox/ProgressBar")
+enemy_array = Array[PackedScene]([ExtResource("18_mwnln")])
+player = NodePath("../Player")
+metadata/_custom_type_script = "uid://bfjvwpu2qvqjv"
+
+[node name="EnemyStatsBox" type="VBoxContainer" parent="." unique_id=421519582]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 100.0
+grow_horizontal = 2
+
+[node name="EnemyStats" parent="EnemyStatsBox" unique_id=1124740246 instance=ExtResource("16_apudk")]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="EnemyStatsBox" unique_id=2084917909]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+value = 50.0
+show_percentage = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=751375223]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.95
+anchor_right = 0.5
+anchor_bottom = 0.95
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayerStats" parent="VBoxContainer" unique_id=299010212 node_paths=PackedStringArray("asc_owner") instance=ExtResource("16_apudk")]
+layout_mode = 2
+asc_owner = NodePath("../../Player")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=756698552]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.5
+anchor_right = 0.01
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1462760044]
+layout_mode = 2
+script = ExtResource("17_mwnln")
+
+[node name="ArrowStatsWidget" parent="PanelContainer/MarginContainer" unique_id=554749102 node_paths=PackedStringArray("asc_owner") instance=ExtResource("20_368fl")]
+layout_mode = 2
+asc_owner = NodePath("../../../Player")
+
+[node name="RoundTime" parent="." unique_id=1088506415 node_paths=PackedStringArray("player") instance=ExtResource("19_48rs0")]
+player = NodePath("../Player")
+round_end_store_prefab = ExtResource("10_oiibt")
+
+[node name="RoundTimeLabel" type="Label" parent="." unique_id=63428275 node_paths=PackedStringArray("round_time")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.01
+anchor_right = 0.5
+anchor_bottom = 0.01
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+script = ExtResource("20_jgxq8")
+round_time = NodePath("../RoundTime")
+
+[node name="PauseButton" parent="." unique_id=555581016 instance=ExtResource("21_jgxq8")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.99
+anchor_top = 0.01
+anchor_right = 0.99
+anchor_bottom = 0.01
+offset_left = -48.0
+offset_right = 0.0
+grow_horizontal = 0
+pause_menu_prefab = ExtResource("21_0t882")
+
+[connection signal="round_end" from="RoundTime" to="Player" method="round_end"]
+[connection signal="round_end" from="RoundTime" to="EnemyManager" method="round_end"]
+[connection signal="round_start" from="RoundTime" to="Player" method="round_start"]
+[connection signal="round_start" from="RoundTime" to="EnemyManager" method="round_start"]

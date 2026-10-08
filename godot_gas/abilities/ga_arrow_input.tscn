@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cquepua8ncy4h"]
+
+[ext_resource type="Script" uid="uid://bnv6flb10r3iy" path="res://godot_gas/abilities/ga_arrow_input.gd" id="1_g53js"]
+
+[node name="ga_arrow_input" type="Node" unique_id=1797144144]
+script = ExtResource("1_g53js")

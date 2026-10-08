@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bh4whxrv80mgj"]
+
+[ext_resource type="Script" uid="uid://3crd0ba3jp35" path="res://Scripts/UI/stat_label.gd" id="1_mvmlx"]
+
+[node name="StatLabel" type="Label" unique_id=670475076]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_mvmlx")

@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://ci7glm84gj2r5"]
+
+[ext_resource type="PackedScene" uid="uid://dbqoiqamlax01" path="res://Prefabs/UpgradeCardVisual.tscn" id="1_2iawn"]
+[ext_resource type="Script" uid="uid://br6ljtl8ebqwq" path="res://Scripts/UI/store_item.gd" id="1_wrud3"]
+[ext_resource type="Texture2D" uid="uid://dww4knvqk5pjy" path="res://Textures/T_Coin.png" id="2_omtxd"]
+
+[node name="StoreItem" type="PanelContainer" unique_id=197851065 node_paths=PackedStringArray("price_label", "upgrade_card_visual", "interact_button")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -119.5
+offset_right = 72.0
+offset_bottom = 212.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wrud3")
+price_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Label")
+upgrade_card_visual = NodePath("MarginContainer/VBoxContainer/UpgradeCardVisual")
+interact_button = NodePath("MarginContainer/VBoxContainer/Button")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1824366202]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2043621803]
+layout_mode = 2
+
+[node name="UpgradeCardVisual" parent="MarginContainer/VBoxContainer" unique_id=1210935038 instance=ExtResource("1_2iawn")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1001221409]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=846370134]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_omtxd")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=347052714]
+layout_mode = 2
+size_flags_horizontal = 4
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=132292897]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Buy"
+icon_alignment = 1

@@ -1,0 +1,210 @@
+# LANGUAGE translation for ArrowHero for the following files:
+# res://Scripts/UI/display_seed.gd
+# res://godot_gas/attributes/base_attribute_set.gd
+# res://godot_gas/attributes/arrow_weights_attribute_set.gd
+# res://Scripts/UI/keybind_menu.gd
+# res://Prefabs/PauseContainer.tscn
+# res://Scripts/UI/input_settings.gd
+# res://Scripts/round_time.gd
+# res://Scripts/UI/round_time_label.gd
+# res://godot_gas/upgrade_cards/cards.tres
+# res://Prefabs/UpgradeCardList.tscn
+# res://Scripts/round_end_store.gd
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ArrowHero\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: Scripts/UI/display_seed.gd:4
+msgid "seed"
+msgstr ""
+
+#: godot_gas/attributes/base_attribute_set.gd:20
+msgid "max_health"
+msgstr ""
+
+#: godot_gas/attributes/base_attribute_set.gd:21
+msgid "current_health"
+msgstr ""
+
+#: godot_gas/attributes/base_attribute_set.gd:22
+msgid "max_shield"
+msgstr ""
+
+#: godot_gas/attributes/base_attribute_set.gd:23
+msgid "current_shield"
+msgstr ""
+
+#: godot_gas/attributes/base_attribute_set.gd:24
+msgid "base_damage"
+msgstr ""
+
+#: godot_gas/attributes/base_attribute_set.gd:25
+msgid "time_period"
+msgstr ""
+
+#: godot_gas/attributes/base_attribute_set.gd:26
+msgid "finish_heal"
+msgstr ""
+
+#: godot_gas/attributes/base_attribute_set.gd:27
+msgid "finish_regen"
+msgstr ""
+
+#: godot_gas/attributes/base_attribute_set.gd:28
+msgid "gold"
+msgstr ""
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:17
+msgid "up_weight"
+msgstr ""
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:18
+msgid "right_weight"
+msgstr ""
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:19
+msgid "down_weight"
+msgstr ""
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:20
+msgid "left_weight"
+msgstr ""
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:21
+msgid "arrow_num"
+msgstr ""
+
+#: godot_gas/attributes/arrow_weights_attribute_set.gd:22
+msgid "wrong_damage"
+msgstr ""
+
+#: Scripts/UI/keybind_menu.gd:26
+msgid "revert_default_key_binding"
+msgstr ""
+
+#: Scripts/UI/keybind_menu.gd:32
+msgid "click_action_and_rebind_key"
+msgstr ""
+
+#: Scripts/UI/keybind_menu.gd:41
+msgid "bind_new_key_esc_quit"
+msgstr ""
+
+#: Scripts/UI/keybind_menu.gd:61
+#: Scripts/UI/keybind_menu.gd:113
+msgid "cancel_rebind"
+msgstr ""
+
+#: Scripts/UI/keybind_menu.gd:86
+msgid "input_settings_saved"
+msgstr ""
+
+#: Scripts/UI/keybind_menu.gd:88
+msgid "input_rebind_but_save_failed"
+msgstr ""
+
+#: Scripts/UI/keybind_menu.gd:100
+msgid "waiting_key_input"
+msgstr ""
+
+#: Prefabs/PauseContainer.tscn
+msgid "Paused"
+msgstr ""
+
+#: Prefabs/PauseContainer.tscn
+msgid "Input Settings"
+msgstr ""
+
+#: Prefabs/PauseContainer.tscn
+msgid "Language"
+msgstr ""
+
+#: Scripts/UI/input_settings.gd:7
+msgid "Up"
+msgstr ""
+
+#: Scripts/UI/input_settings.gd:8
+msgid "Down"
+msgstr ""
+
+#: Scripts/UI/input_settings.gd:9
+msgid "Left"
+msgstr ""
+
+#: Scripts/UI/input_settings.gd:10
+msgid "Right"
+msgstr ""
+
+#: Scripts/UI/input_settings.gd:66
+msgid "unbind"
+msgstr ""
+
+#: Scripts/UI/round_time_label.gd:14
+msgid "round_time"
+msgstr ""
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "large_shield_name"
+msgstr ""
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "large_shield_desc"
+msgstr ""
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "middle_shield_name"
+msgstr ""
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "middle_shield_desc"
+msgstr ""
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "small_shield_name"
+msgstr ""
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "small_shield_desc"
+msgstr ""
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "arrow_badge_name"
+msgstr ""
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "arrow_badge_desc"
+msgstr ""
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "small_knife_name"
+msgstr ""
+
+#: godot_gas/upgrade_cards/cards.tres
+msgid "small_knife_desc"
+msgstr ""
+
+#: Prefabs/UpgradeCardList.tscn
+msgid "upgrade_cards"
+msgstr ""
+
+#: Prefabs/UpgradeCardList.tscn
+msgid "X"
+msgstr ""
+
+#: Scripts/round_end_store.gd:99
+msgid "continue"
+msgstr ""
+
+#: Scripts/round_end_store.gd:108
+msgid "refresh"
+msgstr ""
+
+msgid "ArrowHero"
+msgstr ""

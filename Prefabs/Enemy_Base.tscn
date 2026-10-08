@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dqtqlg7g3532y"]
+
+[ext_resource type="Script" uid="uid://xo6y5d770etq" path="res://Scripts/enemy.gd" id="1_rll7c"]
+[ext_resource type="Resource" uid="uid://dmdbu8r2xub6n" path="res://godot_gas/effects/ge_enemy_attack.tres" id="2_nkvk2"]
+[ext_resource type="Script" uid="uid://cbrvrpcenj2cn" path="res://addons/GodotGAS/components/ability_system_component.gd" id="2_rr6xl"]
+[ext_resource type="Resource" uid="uid://2hm0p3vguqih" path="res://godot_gas/effects/ge_bounty.tres" id="3_aq24f"]
+[ext_resource type="Script" uid="uid://bhr4dsrpc4jw8" path="res://addons/GodotGAS/attributes/attribute_set.gd" id="3_c8mi2"]
+[ext_resource type="Resource" uid="uid://dm8wswbxhojcr" path="res://godot_gas/attributes/enemy_1.tres" id="4_rja4l"]
+
+[node name="Enemy" type="Node" unique_id=414830293]
+script = ExtResource("1_rll7c")
+attack_effect = ExtResource("2_nkvk2")
+bounty_effect = ExtResource("3_aq24f")
+
+[node name="AbilitySystemComponent" type="Node" parent="." unique_id=699053753]
+script = ExtResource("2_rr6xl")
+attribute_sets = Array[ExtResource("3_c8mi2")]([ExtResource("4_rja4l")])
+metadata/_custom_type_script = "uid://cbrvrpcenj2cn"

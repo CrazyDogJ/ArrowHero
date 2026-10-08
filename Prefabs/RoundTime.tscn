@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://j0fhpx3gclia"]
+
+[ext_resource type="Script" uid="uid://c3p3ebjtkcxci" path="res://Scripts/round_time.gd" id="1_fao6b"]
+[ext_resource type="Script" uid="uid://cbrvrpcenj2cn" path="res://addons/GodotGAS/components/ability_system_component.gd" id="2_08rmn"]
+[ext_resource type="Script" uid="uid://bhr4dsrpc4jw8" path="res://addons/GodotGAS/attributes/attribute_set.gd" id="3_ufbke"]
+[ext_resource type="Resource" uid="uid://3r31f44wgkpv" path="res://godot_gas/attributes/round_time.tres" id="4_nvsbw"]
+
+[node name="RoundTime" type="Node" unique_id=1088506415]
+script = ExtResource("1_fao6b")
+metadata/_custom_type_script = "uid://c3p3ebjtkcxci"
+
+[node name="AbilitySystemComponent" type="Node" parent="." unique_id=1195892337]
+script = ExtResource("2_08rmn")
+attribute_sets = Array[ExtResource("3_ufbke")]([ExtResource("4_nvsbw")])
+metadata/_custom_type_script = "uid://cbrvrpcenj2cn"

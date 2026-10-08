@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bfaks8wbdyuwk"]
+
+[ext_resource type="Script" uid="uid://cisq1rryq20hg" path="res://Scripts/round_end_store.gd" id="1_erov7"]
+[ext_resource type="Resource" uid="uid://dqprcdh8iv2cp" path="res://godot_gas/upgrade_cards/cards.tres" id="2_qyfyi"]
+[ext_resource type="PackedScene" uid="uid://ci7glm84gj2r5" path="res://Prefabs/StoreItem.tscn" id="3_kswaq"]
+
+[node name="RoundEndStore" type="PanelContainer" unique_id=1524223566 node_paths=PackedStringArray("hbox", "refresh_button", "continue_button")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_erov7")
+cards = ExtResource("2_qyfyi")
+store_item_prefab = ExtResource("3_kswaq")
+hbox = NodePath("MarginContainer/VBoxContainer/HBoxContainer")
+refresh_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/RefreshButton")
+continue_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/ContinueButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=383783687]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1980299955]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=427438684]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=724818099]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="RefreshButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1218024619]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1429596234]
+layout_mode = 2

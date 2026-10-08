@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeCards" format=3 uid="uid://dqprcdh8iv2cp"]
+
+[ext_resource type="Script" uid="uid://dwmyx67pysw2w" path="res://godot_gas/upgrade_cards/upgrade_card.gd" id="1_3pes4"]
+[ext_resource type="Resource" uid="uid://gphg6dl2bc3w" path="res://godot_gas/upgrade_cards/ge_add_shield_s.tres" id="2_1vgle"]
+[ext_resource type="Script" uid="uid://dkooiso7j4su4" path="res://godot_gas/upgrade_cards/upgrade_cards_localization.gd" id="2_ki00f"]
+[ext_resource type="Resource" uid="uid://5lqnarsqwvxq" path="res://godot_gas/upgrade_cards/ge_add_shield_m.tres" id="3_rrwcr"]
+[ext_resource type="Resource" uid="uid://b5crxup7mnkr2" path="res://godot_gas/upgrade_cards/ge_add_shield_l.tres" id="4_tovv2"]
+[ext_resource type="Resource" uid="uid://ceayfv1c7jdi2" path="res://godot_gas/upgrade_cards/ge_arrow_badge.tres" id="5_yrmrq"]
+[ext_resource type="Resource" uid="uid://b7amcka7588qk" path="res://godot_gas/upgrade_cards/ge_small_knife.tres" id="6_slqux"]
+
+[resource]
+script = ExtResource("2_ki00f")
+cards = Array[ExtResource("1_3pes4")]([ExtResource("4_tovv2"), ExtResource("3_rrwcr"), ExtResource("2_1vgle"), ExtResource("5_yrmrq"), ExtResource("6_slqux")])
+metadata/_custom_type_script = "uid://dkooiso7j4su4"
