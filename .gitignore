@@ -1,5 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 .idea/
-addons/
 /android/
+gd_override_functions/
+gdscript_refactoring/
+GodotGAS/
+script-ide/
+seed/
