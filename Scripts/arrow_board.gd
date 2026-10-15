@@ -70,7 +70,7 @@ func input_finish() -> void:
 	set_collision_layer_value(1, true)
 	set_collision_mask_value(1, true)
 	if is_instance_valid(RandomGenerator):
-		var physRng: RandomNumberGenerator = RandomGenerator.get_physics_rng_safe()
+		var physRng: RandomNumberGenerator = RandomGenerator.get_rng_safe("physics")
 		var dx: bool = physRng.randi_range(0, 1)
 		var dxm: int = 1 if dx else -1
 		var x: float = physRng.randf_range(30, 100)

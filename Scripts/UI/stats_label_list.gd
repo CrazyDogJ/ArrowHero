@@ -17,8 +17,7 @@ func _ready() -> void:
 			var new_label : StatLabel = stat_label.instantiate()
 			if is_instance_valid(new_label):
 				new_label.asc = asc
-				new_label.attribute_name = stat.attribute_name
-				new_label.display_type = stat.display_type
+				new_label.attribute_display = stat
 				add_child(new_label)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

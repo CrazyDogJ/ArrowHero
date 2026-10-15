@@ -27,8 +27,8 @@ func get_owner_asc_arrow_weights() -> Array[float]:
 	var weights : Array[float] = [1,1,1,1]
 	if is_instance_valid(owner_asc):
 		for aset : AttributeSet in owner_asc.attribute_sets:
-			if aset.is_class("ArrowWeightsAttributeSet"):
-				var wset : ArrowWeightsAttributeSet = aset
+			var wset : ArrowWeightsAttributeSet = aset as ArrowWeightsAttributeSet
+			if is_instance_valid(wset):
 				weights = wset.get_arrow_weights()
 				break
 	return weights
@@ -41,7 +41,7 @@ func new_arrow_board() -> ArrowBoard:
 			var arrow_num = owner_asc.get_attribute("arrow_num").current_value
 			var period = owner_asc.get_attribute("time_period").current_value
 			
-			newBoard.Logic.ArrowNums = arrow_num
+			newBoard.Logic.ArrowNums = int(arrow_num)
 			newBoard.Logic.ArrowWeights = weights
 			newBoard.Logic.PeriodTime = period
 			

@@ -4,60 +4,53 @@ const enums := preload("res://Scripts/enums.gd")
 
 @export var global_seed : String
 
-var store_rng : RandomNumberGenerator = RandomNumberGenerator.new()
-var loot_rng : RandomNumberGenerator = RandomNumberGenerator.new()
-var enemy_rng : RandomNumberGenerator = RandomNumberGenerator.new()
-var arrow_rng : RandomNumberGenerator = RandomNumberGenerator.new()
-var physics_rng : RandomNumberGenerator = RandomNumberGenerator.new()
-var sound_rng : RandomNumberGenerator = RandomNumberGenerator.new()
+var rng_list : Dictionary[String, RandomNumberGenerator]
 
-func get_store_rng_safe() -> RandomNumberGenerator:
-	var c_seed: String = get_seed_safe()
-	if store_rng.seed == 0:
-		store_rng = Seed.generate_rng(c_seed)
-	return store_rng
-	
-func get_loot_rng_safe() -> RandomNumberGenerator:
-	var c_seed: String = get_seed_safe()
-	if loot_rng.seed == 0:
-		loot_rng = Seed.generate_rng(c_seed)
-	return loot_rng
-	
-func get_sound_rng_safe() -> RandomNumberGenerator:
-	var c_seed: String = get_seed_safe()
-	if sound_rng.seed == 0:
-		sound_rng = Seed.generate_rng(c_seed)
-	return sound_rng
+func clear_rng() -> void:
+	rng_list.clear()
 
-func get_physics_rng_safe() -> RandomNumberGenerator:
-	var c_seed: String = get_seed_safe()
-	if physics_rng.seed == 0:
-		physics_rng = Seed.generate_rng(c_seed)
-	return physics_rng
+func get_rng_state_dictionary() -> Dictionary[String, int]:
+	var result : Dictionary[String, int]
+	for rng_name in rng_list.keys():
+		var rng : RandomNumberGenerator = rng_list.get(rng_name) as RandomNumberGenerator
+		result.get_or_add(rng_name, rng.state)
+	return result
 
-func get_arrow_rng_safe() -> RandomNumberGenerator:
-	var c_seed: String = get_seed_safe()
-	if arrow_rng.seed == 0:
-		arrow_rng = Seed.generate_rng(c_seed)
-	return arrow_rng
-	
-func get_enemy_rng_safe() -> RandomNumberGenerator:
-	var c_seed: String = get_seed_safe()
-	if enemy_rng.seed == 0:
-		enemy_rng = Seed.generate_rng(c_seed)
-	return enemy_rng
+func load_rng_state_dictionary(in_dic : Dictionary) -> void:
+	clear_rng()
+	for rng_name in in_dic.keys():
+		var c_seed: String = get_seed_safe()
+		var new_rng: RandomNumberGenerator = Seed.generate_rng(c_seed)
+		new_rng.state = in_dic.get(rng_name)
+		rng_list.get_or_add(rng_name, new_rng)
+
+func save_game() -> Dictionary:
+	var save_dict = {
+		"global_seed" : global_seed,
+		"rng_list" : get_rng_state_dictionary()
+	}
+	return save_dict
+
+func load_game(in_data : Dictionary) -> void:
+	global_seed = in_data.get("global_seed")
+	var rng_list_save_data : Dictionary = in_data.get("rng_list")
+	load_rng_state_dictionary(rng_list_save_data)
+
+func _init() -> void:
+	add_to_group("Persist")
+
+func get_rng_safe(rng_name : String) -> RandomNumberGenerator:
+	if rng_name.is_empty():
+		return null
+	if rng_list.has(rng_name):
+		return rng_list.get(rng_name)
+	else:
+		var c_seed: String = get_seed_safe()
+		var new_rng: RandomNumberGenerator = Seed.generate_rng(c_seed)
+		rng_list.get_or_add(rng_name, new_rng)
+		return new_rng
 	
 func get_seed_safe() -> String:
 	if global_seed.is_empty():
 		global_seed = Seed.generate_seed_string(Seed.ALL_MIXED, 12)
 	return global_seed
-
-func generate_arrows(arrow_num : int, arrow_weights : Array[float]) -> Array[enums.ArrowDirection]:
-	var result : Array[enums.ArrowDirection]
-	if arrow_num <= 0:
-		return result
-	for i in range(arrow_num):
-		var rng = get_arrow_rng_safe();
-		var index = rng.rand_weighted(arrow_weights)
-		result.push_back(index + 1)
-	return result

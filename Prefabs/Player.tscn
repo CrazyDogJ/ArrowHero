@@ -13,6 +13,10 @@
 [ext_resource type="Script" uid="uid://dapo84yjxq6qh" path="res://addons/GodotGAS/attributes/attribute_data.gd" id="11_wuv02"]
 [ext_resource type="Script" uid="uid://cdb5ajvne1dno" path="res://godot_gas/attributes/store_attribute_set.gd" id="12_8afax"]
 [ext_resource type="Script" uid="uid://dopimpgcd72nk" path="res://Scripts/upgrade_cards_manager.gd" id="13_8afax"]
+[ext_resource type="Script" uid="uid://dwmyx67pysw2w" path="res://godot_gas/upgrade_cards/upgrade_card.gd" id="14_08l6w"]
+[ext_resource type="Resource" uid="uid://dnx51uhypf2b3" path="res://godot_gas/upgrade_cards/ge_damaged_hourglass.tres" id="15_o7xy3"]
+[ext_resource type="Resource" uid="uid://cgflkb7fs4luq" path="res://godot_gas/upgrade_cards/ge_bandage.tres" id="16_o7xy3"]
+[ext_resource type="Resource" uid="uid://d3wtnqus6ecrt" path="res://godot_gas/upgrade_cards/ge_right_arrow_badge.tres" id="17_qm8rn"]
 
 [sub_resource type="Resource" id="Resource_t7w7j"]
 script = ExtResource("11_wuv02")
@@ -43,4 +47,5 @@ attribute_sets = Array[ExtResource("8_qm8rn")]([ExtResource("9_aw6xh"), ExtResou
 
 [node name="UpgradeCardsManager" type="Node" parent="." unique_id=1139941984]
 script = ExtResource("13_8afax")
+init_cards = Array[ExtResource("14_08l6w")]([ExtResource("15_o7xy3"), ExtResource("16_o7xy3"), ExtResource("17_qm8rn")])
 metadata/_custom_type_script = "uid://dopimpgcd72nk"

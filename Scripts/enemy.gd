@@ -30,17 +30,19 @@ func time_end() -> void:
 		asc.apply_effect_spec_to_target(spec, target_asc)
 	reset_current_time()
 
-func give_gold(target_asc : AbilitySystemComponent) -> void:
+func give_gold(give_to_asc : AbilitySystemComponent) -> void:
 	# Create a basic context and spec so the developer doesn't have to do it manually every time
 	var instigator = get_ability_component().get_parent() if get_ability_component() else get_parent()
 	var context = GameplayEffectContext.new(instigator)
 	var spec = GameplayEffectSpec.new(bounty_effect, context, bounty_floating)
-	get_ability_component().apply_effect_spec_to_target(spec, target_asc)
+	get_ability_component().apply_effect_spec_to_target(spec, give_to_asc)
 
 func dead(attribute_name: String, old_value: float, new_value: float, effect_spec: GameplayEffectSpec) -> void:
 	var source_asc : AbilitySystemComponent = effect_spec.context.causer.get_node("AbilitySystemComponent")
 	if is_instance_valid(source_asc):
 		give_gold(source_asc)
+	if is_instance_valid(GlobalVars.round_time):
+		GlobalVars.round_time.add_distance()
 	queue_free()
 
 func _on_attribute_change(attribute_name: String, old_value: float, new_value: float, effect_spec: GameplayEffectSpec) -> void:

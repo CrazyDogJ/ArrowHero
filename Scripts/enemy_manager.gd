@@ -16,10 +16,11 @@ func round_start() -> void:
 
 func round_end() -> void:
 	is_round_start = false
-	current_enemy.queue_free()
+	if is_instance_valid(current_enemy):
+		current_enemy.queue_free()
 
 func spawn_enemy() -> void:
-	var index : int = RandomGenerator.get_enemy_rng_safe().randi_range(0, enemy_array.size() - 1)
+	var index : int = RandomGenerator.get_rng_safe("enemy").randi_range(0, enemy_array.size() - 1)
 	if enemy_array[index].can_instantiate():
 		current_enemy = enemy_array[index].instantiate()
 		add_child(current_enemy)

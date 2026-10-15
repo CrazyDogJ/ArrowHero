@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b7ovihaaijli7" path="res://addons/GodotGAS/effects/gameplay_execution_calculation.gd" id="1_pbn5f"]
 [ext_resource type="Script" uid="uid://bcow77l0bnh0s" path="res://addons/GodotGAS/effects/gameplay_effect_modifier.gd" id="2_4v0tk"]
 [ext_resource type="Script" uid="uid://cimrp668utk05" path="res://godot_gas/effects/gec_bounty.gd" id="2_esv6v"]
+[ext_resource type="Texture2D" uid="uid://dww4knvqk5pjy" path="res://Textures/T_Coin.png" id="2_x0icj"]
 [ext_resource type="Script" uid="uid://c81papidngxvg" path="res://addons/GodotGAS/effects/gameplay_effect.gd" id="3_esv6v"]
 
 [sub_resource type="Resource" id="Resource_nkvk2"]

@@ -39,7 +39,7 @@ func _apply_key(action: String, code: int) -> void:
 			InputMap.action_erase_event(action, event)
 
 	var key := InputEventKey.new()
-	key.physical_keycode = code
+	key.physical_keycode = code as Key
 	InputMap.action_add_event(action, key)
 
 

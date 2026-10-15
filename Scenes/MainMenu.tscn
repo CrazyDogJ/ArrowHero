@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://dfxi7mb7mvf7v"]
+
+[ext_resource type="Script" uid="uid://8g5pc8rkqtaj" path="res://Scripts/UI/input_settings_button.gd" id="1_853f1"]
+[ext_resource type="PackedScene" uid="uid://ceey61rkr3tfx" path="res://Prefabs/KeyBindVBox.tscn" id="2_8saeu"]
+[ext_resource type="Script" uid="uid://x5u7052uy8a" path="res://Scripts/UI/MainMenu/play_button.gd" id="2_df05h"]
+[ext_resource type="Script" uid="uid://sppkh213qpu2" path="res://Scripts/UI/MainMenu/exit_button.gd" id="3_8saeu"]
+[ext_resource type="Script" uid="uid://chp2hdgnmb17w" path="res://Scripts/UI/MainMenu/continue_button.gd" id="3_xim88"]
+[ext_resource type="Script" uid="uid://bl372qhg5nsy0" path="res://Scripts/UI/MainMenu/version_label.gd" id="4_ghw46"]
+[ext_resource type="Script" uid="uid://bc0j8pjdi7k6n" path="res://Scripts/UI/PauseMenu/localization_options.gd" id="4_xim88"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ogq8d"]
+font_size = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xim88"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Control" type="Control" unique_id=1746302991]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=114383951]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("4_ghw46")
+
+[node name="Label2" type="Label" parent="." unique_id=88956814]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+grow_horizontal = 2
+text = "ArrowHero"
+label_settings = SubResource("LabelSettings_ogq8d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=317822747]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.5
+offset_top = -95.5
+offset_right = 119.5
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xim88")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=251165750]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=872200168]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Play" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1193040439 node_paths=PackedStringArray("seed_edit_line")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play"
+icon_alignment = 1
+script = ExtResource("2_df05h")
+seed_edit_line = NodePath("../HBoxContainer/SeedLineEdit")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=464627675]
+layout_mode = 2
+
+[node name="SeedLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1161466224]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "seed"
+vertical_alignment = 1
+
+[node name="SeedLineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=462906166]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+
+[node name="Continue" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=798809635]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Continue"
+icon_alignment = 1
+script = ExtResource("3_xim88")
+
+[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1109203193]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Language"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1399334364]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+script = ExtResource("4_xim88")
+
+[node name="InputSettings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=117093359]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Input Settings"
+script = ExtResource("1_853f1")
+input_settings_scene = ExtResource("2_8saeu")
+
+[node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=868234063]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+script = ExtResource("3_8saeu")

@@ -36,21 +36,29 @@ metadata/_custom_type_script = "uid://c0oos8joueprv"
 [sub_resource type="Resource" id="Resource_4pdke"]
 script = ExtResource("3_4pdke")
 attribute_name = "up_weight"
+display_type = 2
+other_attribute_name = Array[String](["right_weight", "down_weight", "left_weight"])
 metadata/_custom_type_script = "uid://c0oos8joueprv"
 
 [sub_resource type="Resource" id="Resource_iaqyj"]
 script = ExtResource("3_4pdke")
 attribute_name = "right_weight"
+display_type = 2
+other_attribute_name = Array[String](["up_weight", "down_weight", "left_weight"])
 metadata/_custom_type_script = "uid://c0oos8joueprv"
 
 [sub_resource type="Resource" id="Resource_vgsot"]
 script = ExtResource("3_4pdke")
 attribute_name = "down_weight"
+display_type = 2
+other_attribute_name = Array[String](["up_weight", "right_weight", "left_weight"])
 metadata/_custom_type_script = "uid://c0oos8joueprv"
 
 [sub_resource type="Resource" id="Resource_kyaed"]
 script = ExtResource("3_4pdke")
 attribute_name = "left_weight"
+display_type = 2
+other_attribute_name = Array[String](["up_weight", "right_weight", "down_weight"])
 metadata/_custom_type_script = "uid://c0oos8joueprv"
 
 [sub_resource type="Resource" id="Resource_xgqqe"]

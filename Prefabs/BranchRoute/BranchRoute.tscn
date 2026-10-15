@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://ccrbl4xam7c5u"]
+
+[ext_resource type="Script" uid="uid://ckhlwfd2jqj8g" path="res://Scripts/Route/route_map_root.gd" id="1_c0xys"]
+[ext_resource type="Script" uid="uid://bh57e7mskvmnp" path="res://Scripts/Route/route_map.gd" id="1_fgdsi"]
+[ext_resource type="Script" uid="uid://dws2yuolin78u" path="res://Scripts/UI/close_button.gd" id="2_ls3sn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogq8d"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="BranchRoute" type="Control" unique_id=401248729 node_paths=PackedStringArray("branch_route_map", "close_button")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c0xys")
+branch_route_map = NodePath("PanelContainer/VBoxContainer/ScrollContainer/BranchRouteMap")
+close_button = NodePath("PanelContainer/VBoxContainer/Button")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=435497107]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.7
+anchor_bottom = 0.9
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ogq8d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=563900670]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2052299313 node_paths=PackedStringArray("removing_node")]
+process_mode = 3
+custom_minimum_size = Vector2(30, 30)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+script = ExtResource("2_ls3sn")
+removing_node = NodePath("../../..")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer" unique_id=1582014817]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BranchRouteMap" type="Control" parent="PanelContainer/VBoxContainer/ScrollContainer" unique_id=1471964961]
+layout_mode = 2
+script = ExtResource("1_fgdsi")
+disable_color = Color(0.11157406, 0.35454735, 0.42941517, 1)
+metadata/_custom_type_script = "uid://bh57e7mskvmnp"

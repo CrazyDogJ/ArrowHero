@@ -1,0 +1,17 @@
+[gd_resource type="AnimationNodeBlendSpace1D" format=3 uid="uid://d0mdso1ix0rxx"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0or0f"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6x6wj"]
+animation = &"run"
+
+[resource]
+min_space = 0.0
+value_label = "speed"
+blend_point_0/node = SubResource("AnimationNodeAnimation_0or0f")
+blend_point_0/pos = 0.0
+blend_point_0/name = &"idle"
+blend_point_1/node = SubResource("AnimationNodeAnimation_6x6wj")
+blend_point_1/pos = 1.0
+blend_point_1/name = &"run"

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b41fklhq5n0vv"]
+
+[ext_resource type="Script" uid="uid://cl3w4fato7td1" path="res://Scripts/UI/LoadingScreen/loading_screen.gd" id="1_0s034"]
+[ext_resource type="Texture2D" uid="uid://bomrolqwsgv12" path="res://arrow_head_icon.svg" id="1_sid5e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogq8d"]
+bg_color = Color(0.3403393, 0.34033936, 0.34033918, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eg0p3"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Loading" type="Control" unique_id=1361031684 node_paths=PackedStringArray("progress_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0s034")
+progress_bar = NodePath("VBoxContainer/ProgressBar")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=572664438]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=189899028]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=645467351]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("1_sid5e")
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer" unique_id=2042965700]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ogq8d")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eg0p3")

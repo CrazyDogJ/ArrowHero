@@ -17,7 +17,8 @@ enum ArrowDirection
 enum AttributeDisplayType
 {
 	Float,
-	Int
+	Int,
+	Probability
 }
 
 static func get_correct_num(states : Array[ArrowState]) -> int:

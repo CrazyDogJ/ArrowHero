@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://dfijet26wu0tm"]
 
-[ext_resource type="Script" uid="uid://cng4owmnv7f7q" path="res://Scripts/UI/common_margin_container.gd" id="1_63g88"]
 [ext_resource type="Script" uid="uid://8g5pc8rkqtaj" path="res://Scripts/UI/input_settings_button.gd" id="2_knjxn"]
-[ext_resource type="Script" uid="uid://bc0j8pjdi7k6n" path="res://Scripts/UI/localization_options.gd" id="2_sdgbj"]
+[ext_resource type="Script" uid="uid://bc0j8pjdi7k6n" path="res://Scripts/UI/PauseMenu/localization_options.gd" id="2_sdgbj"]
 [ext_resource type="PackedScene" uid="uid://ceey61rkr3tfx" path="res://Prefabs/KeyBindVBox.tscn" id="3_5te0f"]
+[ext_resource type="Script" uid="uid://cldjbh78r3okd" path="res://Scripts/UI/PauseMenu/card_list_button.gd" id="3_rhs67"]
+[ext_resource type="PackedScene" uid="uid://b3g3vvennvgmw" path="res://Prefabs/UpgradeCardList.tscn" id="4_g0au5"]
+[ext_resource type="Script" uid="uid://b5bjlpfpl26m1" path="res://Scripts/UI/PauseMenu/route_map_button.gd" id="5_qmglt"]
+[ext_resource type="Script" uid="uid://doni4bc0nv2wm" path="res://Scripts/UI/PauseMenu/main_menu_button.gd" id="6_1cc10"]
+[ext_resource type="Script" uid="uid://sppkh213qpu2" path="res://Scripts/UI/MainMenu/exit_button.gd" id="6_g0au5"]
+[ext_resource type="PackedScene" uid="uid://ccrbl4xam7c5u" path="res://Prefabs/BranchRoute/BranchRoute.tscn" id="6_lapwv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgxq8"]
 corner_radius_top_left = 16
@@ -29,7 +34,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_jgxq8")
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1788726808]
 process_mode = 3
 layout_mode = 2
-script = ExtResource("1_63g88")
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1828361495]
 process_mode = 3
@@ -49,6 +57,20 @@ text = "Input Settings"
 script = ExtResource("2_knjxn")
 input_settings_scene = ExtResource("3_5te0f")
 
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1877844343]
+process_mode = 3
+layout_mode = 2
+text = "Owned Cards"
+script = ExtResource("3_rhs67")
+card_list_scene = ExtResource("4_g0au5")
+
+[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1871708962]
+process_mode = 3
+layout_mode = 2
+text = "Route Map"
+script = ExtResource("5_qmglt")
+map_scene = ExtResource("6_lapwv")
+
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1438721184]
 process_mode = 3
 layout_mode = 2
@@ -60,3 +82,15 @@ vertical_alignment = 1
 process_mode = 3
 layout_mode = 2
 script = ExtResource("2_sdgbj")
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1129004661]
+process_mode = 3
+layout_mode = 2
+text = "Main Menu"
+script = ExtResource("6_1cc10")
+
+[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1640177151]
+process_mode = 3
+layout_mode = 2
+text = "Exit"
+script = ExtResource("6_g0au5")

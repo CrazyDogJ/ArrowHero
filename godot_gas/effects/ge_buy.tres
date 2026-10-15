@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GameplayEffect" format=3 uid="uid://bwn85jv3dtldj"]
+
+[ext_resource type="Script" uid="uid://b7ovihaaijli7" path="res://addons/GodotGAS/effects/gameplay_execution_calculation.gd" id="1_wrdfg"]
+[ext_resource type="Script" uid="uid://bcow77l0bnh0s" path="res://addons/GodotGAS/effects/gameplay_effect_modifier.gd" id="2_3wkc0"]
+[ext_resource type="Script" uid="uid://cx20mo17jqdes" path="res://godot_gas/effects/gec_level_base.gd" id="2_ap757"]
+[ext_resource type="Script" uid="uid://c81papidngxvg" path="res://addons/GodotGAS/effects/gameplay_effect.gd" id="3_ap757"]
+
+[sub_resource type="Resource" id="Resource_wrdfg"]
+script = ExtResource("2_ap757")
+attribute_string = "gold"
+metadata/_custom_type_script = "uid://cx20mo17jqdes"
+
+[resource]
+script = ExtResource("3_ap757")
+executions = Array[ExtResource("1_wrdfg")]([SubResource("Resource_wrdfg")])
+metadata/_custom_type_script = "uid://c81papidngxvg"

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dbqoiqamlax01"]
 
 [ext_resource type="Script" uid="uid://bnkw3tq8kdoqa" path="res://Scripts/UI/upgrade_card_visual.gd" id="1_7hm1r"]
-[ext_resource type="Script" uid="uid://cng4owmnv7f7q" path="res://Scripts/UI/common_margin_container.gd" id="1_f8wq4"]
 
 [node name="UpgradeCardVisual" type="PanelContainer" unique_id=1210935038 node_paths=PackedStringArray("card_name_label", "card_desc_label", "card_icon_rect")]
 anchors_preset = 8
@@ -26,8 +25,6 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
-script = ExtResource("1_f8wq4")
-margin_value = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2001357550]
 layout_mode = 2

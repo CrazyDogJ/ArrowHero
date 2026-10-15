@@ -18,6 +18,16 @@ signal input_pressed(Index : int, ArrowDirection : enums.ArrowDirection, ArrowRe
 
 @onready var CurrentTime : float = PeriodTime
 
+func generate_arrows(arrow_num : int, arrow_weights : Array[float]) -> Array[enums.ArrowDirection]:
+	var result : Array[enums.ArrowDirection]
+	if arrow_num <= 0:
+		return result
+	for i in range(arrow_num):
+		var rng = RandomGenerator.get_rng_safe("arrow")
+		var index = rng.rand_weighted(arrow_weights)
+		result.push_back(index + 1)
+	return result
+
 func is_current_input_match(event: InputEvent) -> bool:
 	# make sure current input index is inside the array range.
 	if CurrentArrowArray.size() > CurrentInputtingIndex:
@@ -37,7 +47,7 @@ func finish() -> void:
 
 func _ready() -> void:
 	set_process_input(false)
-	CurrentArrowArray = RandomGenerator.generate_arrows(ArrowNums, ArrowWeights)
+	CurrentArrowArray = generate_arrows(ArrowNums, ArrowWeights)
 	CurrentArrowResult.resize(CurrentArrowArray.size())
 			
 func _input(event: InputEvent) -> void:

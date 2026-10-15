@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://3mp2bcfn68wv"]
+
+[ext_resource type="Script" uid="uid://b7ovihaaijli7" path="res://addons/GodotGAS/effects/gameplay_execution_calculation.gd" id="1_0mecx"]
+[ext_resource type="Script" uid="uid://bcow77l0bnh0s" path="res://addons/GodotGAS/effects/gameplay_effect_modifier.gd" id="2_neyxu"]
+[ext_resource type="Script" uid="uid://dwmyx67pysw2w" path="res://godot_gas/upgrade_cards/upgrade_card.gd" id="3_0gaqd"]
+[ext_resource type="Script" uid="uid://cnabcfh8fs438" path="res://godot_gas/upgrade_cards/upgrade_card_calculations/ucc_time_remain_damage.gd" id="4_nih7f"]
+
+[sub_resource type="Resource" id="Resource_6u4xy"]
+script = ExtResource("4_nih7f")
+damage_multiplier = 3.0
+metadata/_custom_type_script = "uid://cnabcfh8fs438"
+
+[resource]
+script = ExtResource("3_0gaqd")
+card_name = "Normal Hour Glass"
+card_desc = "Deal damage to enemy depend on time remain. Multiplier : 3"
+card_base_price = 40
+card_floating_price = 10
+card_store_weight = 0.8
+upgrade_card_calculation = SubResource("Resource_6u4xy")
+policy = 2
+metadata/_custom_type_script = "uid://c81papidngxvg"

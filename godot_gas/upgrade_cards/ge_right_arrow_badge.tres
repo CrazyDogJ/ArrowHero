@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://d3wtnqus6ecrt"]
+
+[ext_resource type="Script" uid="uid://b7ovihaaijli7" path="res://addons/GodotGAS/effects/gameplay_execution_calculation.gd" id="1_48xg0"]
+[ext_resource type="Script" uid="uid://bcow77l0bnh0s" path="res://addons/GodotGAS/effects/gameplay_effect_modifier.gd" id="2_c75w2"]
+[ext_resource type="Script" uid="uid://dwmyx67pysw2w" path="res://godot_gas/upgrade_cards/upgrade_card.gd" id="3_irmbd"]
+
+[sub_resource type="Resource" id="Resource_48xg0"]
+script = ExtResource("2_c75w2")
+attribute_name = "right_weight"
+magnitude = 1.0
+metadata/_custom_type_script = "uid://bcow77l0bnh0s"
+
+[resource]
+script = ExtResource("3_irmbd")
+card_name = "Right Arrow Badge"
+card_base_price = 35
+card_floating_price = 10
+card_store_weight = 0.8
+policy = 2
+modifiers = Array[ExtResource("2_c75w2")]([SubResource("Resource_48xg0")])
+metadata/_custom_type_script = "uid://dwmyx67pysw2w"

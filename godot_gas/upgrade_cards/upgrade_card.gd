@@ -9,8 +9,22 @@ class_name UpgradeCard extends GameplayEffect
 
 @export var is_round_time : bool = false
 
+const uccp := preload("res://godot_gas/upgrade_cards/upgrade_card_calculation.gd")
+@export var upgrade_card_calculation : UpgradeCardCalculation
+
+func _init() -> void:
+	policy = DurationPolicy.INFINITE
+
+func handle_arrow_input(input_payload : uccp.ArrowInputPayload, asc : AbilitySystemComponent, target_asc : AbilitySystemComponent) -> void:
+	if is_instance_valid(upgrade_card_calculation):
+		upgrade_card_calculation._on_arrow_input(input_payload, asc, target_asc)
+		
+func handle_arrow_finish(finish_payload : uccp.ArrowBoardFinishPayload, asc : AbilitySystemComponent, target_asc : AbilitySystemComponent) -> void:
+	if is_instance_valid(upgrade_card_calculation):
+		upgrade_card_calculation._on_arrow_board_finish(finish_payload, asc, target_asc)
+
 func make_text(raw_string : String) -> String:
-	var result : String
+	var result : String = ""
 	for modifier in modifiers:
 		var att_loc_name : String = tr(modifier.attribute_name)
 		var att_mod_value : float = modifier.calculate_magnitude()

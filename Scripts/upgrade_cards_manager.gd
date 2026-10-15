@@ -8,6 +8,14 @@ var round_time_asc : AbilitySystemComponent
 
 var active_cards : Array[ActiveGameplayEffect]
 
+@export var init_cards : Array[UpgradeCard]
+
+func get_cards() -> Array[UpgradeCard]:
+	var result : Array[UpgradeCard]
+	for card in active_cards:
+		result.push_back(card.get_effect_def())
+	return result
+
 func _ready() -> void:
 	asc_owner = get_parent()
 	if is_instance_valid(asc_owner):
@@ -15,6 +23,12 @@ func _ready() -> void:
 	round_time = asc_owner.get_parent().get_node("RoundTime")
 	if is_instance_valid(round_time):
 		round_time_asc = round_time.get_node("AbilitySystemComponent")
+	GlobalVars.cards_manager = self
+	for init_card in init_cards:
+		add_card(init_card)
+
+func _exit_tree() -> void:
+	GlobalVars.cards_manager = null
 
 func add_card(in_card : UpgradeCard) -> void:
 	if is_instance_valid(in_card):

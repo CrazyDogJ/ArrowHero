@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d0j4sa2g4o7u8"]
+
+[ext_resource type="Texture2D" uid="uid://cqxu56pumj5q0" path="res://Textures/Hero/default_hero_body.png" id="1_lkiev"]
+
+[node name="Body" type="Polygon2D" unique_id=423281136]
+texture = ExtResource("1_lkiev")
+polygon = PackedVector2Array(46.460953, 77.333954, 49.467773, 230.08003, 196.80157, 230.6814, 214.84244, 38.245396, 82.54271, 28.623596)
+uv = PackedVector2Array(46.460953, 77.333954, 49.467773, 230.08003, 196.80157, 230.6814, 214.84244, 38.245396, 82.54271, 28.623596)

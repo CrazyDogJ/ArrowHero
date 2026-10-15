@@ -11,15 +11,24 @@ config_version=5
 [application]
 
 config/name="ArrowHero"
-run/main_scene="uid://2qj1greqa8br"
+config/description="A little game that using arrow to beat enemies."
+config/version="0.1"
+run/main_scene="uid://dfxi7mb7mvf7v"
 config/features=PackedStringArray("4.7", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://bomrolqwsgv12"
 
 [autoload]
 
 GameplayCueManager="*uid://bh6ixabs0w700"
 RandomGenerator="*uid://b3egmx41ktxpp"
 InputSettings="*uid://bp7tbh301b08b"
+GlobalVars="*uid://dhu6gbr8e2wup"
+LoadingScreenManager="*uid://bdlf1qgrbar0b"
+SaveGameManager="*uid://d2uigj5l7p74m"
+
+[debug]
+
+gdscript/warnings/unused_parameter=0
 
 [display]
 
@@ -60,7 +69,7 @@ Right={
 [internationalization]
 
 locale/translations=PackedStringArray("res://Localization/zh_CN.po", "res://Localization/en_US.po")
-locale/translations_pot_files=PackedStringArray("res://Scripts/UI/display_seed.gd", "res://godot_gas/attributes/base_attribute_set.gd", "res://godot_gas/attributes/arrow_weights_attribute_set.gd", "res://Scripts/UI/keybind_menu.gd", "res://Prefabs/PauseContainer.tscn", "res://Scripts/UI/input_settings.gd", "res://Scripts/round_time.gd", "res://Scripts/UI/round_time_label.gd", "res://godot_gas/upgrade_cards/cards.tres", "res://Prefabs/UpgradeCardList.tscn", "res://Scripts/round_end_store.gd")
+locale/translations_pot_files=PackedStringArray("res://Scripts/UI/display_seed.gd", "res://godot_gas/attributes/base_attribute_set.gd", "res://godot_gas/attributes/arrow_weights_attribute_set.gd", "res://Scripts/UI/keybind_menu.gd", "res://Prefabs/PauseContainer.tscn", "res://Scripts/round_time.gd", "res://Scripts/UI/round_time_label.gd", "res://godot_gas/upgrade_cards/cards.tres", "res://Prefabs/UpgradeCardList.tscn", "res://Scripts/round_end_store.gd", "res://Scripts/UI/MainMenu/version_label.gd", "res://Scripts/UI/PauseMenu/input_settings.gd")
 
 [maaacks_input_remapping]
 

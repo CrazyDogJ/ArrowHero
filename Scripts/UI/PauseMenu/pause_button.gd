@@ -12,11 +12,18 @@ func _init() -> void:
 func _process(delta: float) -> void:
 	icon = unpause_tex if get_tree().paused else pause_tex
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_close_dialog"):
+		_pressed()
+
 func _pressed() -> void:
 	if not get_tree().paused:
 		if pause_menu_prefab.can_instantiate():
 			pause_menu = pause_menu_prefab.instantiate()
-			get_tree().root.add_child(pause_menu)
+			var current_scene_root := get_tree().current_scene
+			current_scene_root.add_child(pause_menu)
+			current_scene_root.move_child(pause_menu, get_parent().get_child_count() - 1)
+			pause_menu.set_z_index(1)
 	else:
 		if is_instance_valid(pause_menu):
 			pause_menu.queue_free()

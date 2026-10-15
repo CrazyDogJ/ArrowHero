@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cisq1rryq20hg" path="res://Scripts/round_end_store.gd" id="1_erov7"]
 [ext_resource type="Resource" uid="uid://dqprcdh8iv2cp" path="res://godot_gas/upgrade_cards/cards.tres" id="2_qyfyi"]
+[ext_resource type="Resource" uid="uid://bwn85jv3dtldj" path="res://godot_gas/effects/ge_buy.tres" id="3_157q3"]
 [ext_resource type="PackedScene" uid="uid://ci7glm84gj2r5" path="res://Prefabs/StoreItem.tscn" id="3_kswaq"]
 
 [node name="RoundEndStore" type="PanelContainer" unique_id=1524223566 node_paths=PackedStringArray("hbox", "refresh_button", "continue_button")]
@@ -18,6 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_erov7")
 cards = ExtResource("2_qyfyi")
+buy_effect = ExtResource("3_157q3")
 store_item_prefab = ExtResource("3_kswaq")
 hbox = NodePath("MarginContainer/VBoxContainer/HBoxContainer")
 refresh_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/RefreshButton")

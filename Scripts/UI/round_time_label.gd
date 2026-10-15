@@ -11,4 +11,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_instance_valid(round_time):
 		var crt = round_time.asc.get_attribute("current_round_time").current_value
-		text = "%s : %s" % [tr("round_time"),str(snapped(crt, 0.1))]
+		var cd : int = int(round_time.asc.get_attribute("current_day").current_value)
+		text = "%s : %s, %s : %s" % [tr("day"),str(cd),tr("round_time"),str(snapped(crt, 0.1))]

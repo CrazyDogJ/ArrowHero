@@ -13,14 +13,17 @@ class_name StoreItem extends Node
 
 signal on_interact_button_press(interacting_item : StoreItem)
 
+func update_button_disable() -> void:
+	if is_instance_valid(interact_button):
+		if is_instance_valid(asc):
+			var current_gold : int = int(asc.get_attribute("gold").current_value)
+			interact_button.disabled = current_gold < price
+
 func _on_pressed() -> void:
 	on_interact_button_press.emit(self)
 
 func _ready() -> void:
 	if is_instance_valid(interact_button):
-		if is_instance_valid(asc):
-			var current_gold : int = asc.get_attribute("gold").current_value
-			interact_button.disabled = current_gold < price
 		interact_button.pressed.connect(_on_pressed)
 		if is_selling:
 			interact_button.text = tr("sell")
@@ -30,3 +33,6 @@ func _ready() -> void:
 		price_label.text = str(price)
 	if is_instance_valid(upgrade_card_visual):
 		upgrade_card_visual._set_card_desc(card)
+		
+func _process(delta: float) -> void:
+	update_button_disable()

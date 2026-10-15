@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://dnx51uhypf2b3"]
+
+[ext_resource type="Script" uid="uid://b7ovihaaijli7" path="res://addons/GodotGAS/effects/gameplay_execution_calculation.gd" id="1_wiq83"]
+[ext_resource type="Texture2D" uid="uid://j5g4m0ytx773" path="res://Textures/T_Cracked_Hourglass.png" id="1_yde1y"]
+[ext_resource type="Script" uid="uid://bcow77l0bnh0s" path="res://addons/GodotGAS/effects/gameplay_effect_modifier.gd" id="2_yde1y"]
+[ext_resource type="Script" uid="uid://dwmyx67pysw2w" path="res://godot_gas/upgrade_cards/upgrade_card.gd" id="3_2c04t"]
+[ext_resource type="Script" uid="uid://cnabcfh8fs438" path="res://godot_gas/upgrade_cards/upgrade_card_calculations/ucc_time_remain_damage.gd" id="4_cswu7"]
+
+[sub_resource type="Resource" id="Resource_6u4xy"]
+script = ExtResource("4_cswu7")
+metadata/_custom_type_script = "uid://cnabcfh8fs438"
+
+[resource]
+script = ExtResource("3_2c04t")
+card_name = "Damaged Hour Glass"
+card_desc = "Deal damage to enemy depend on time remain. Multiplier : 1"
+card_icon = ExtResource("1_yde1y")
+card_base_price = 28
+card_floating_price = 5
+upgrade_card_calculation = SubResource("Resource_6u4xy")
+policy = 2
+metadata/_custom_type_script = "uid://c81papidngxvg"

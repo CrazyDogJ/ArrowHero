@@ -13,6 +13,7 @@ const ga_spawn_arrow_board = preload("res://godot_gas/abilities/ga_spawn_arrow_b
 @export var enemy_manager : EnemyManager
 
 @onready var asc : AbilitySystemComponent = $AbilitySystemComponent
+@onready var card_manager : UpgradeCardsManager = $UpgradeCardsManager
 
 @export_category("Ability System")
 @export var abilities : Array[PackedScene]
@@ -21,24 +22,49 @@ const ga_spawn_arrow_board = preload("res://godot_gas/abilities/ga_spawn_arrow_b
 @export var finish_effect : GameplayEffect
 @export var attack_effect : GameplayEffect
 
+@export_category("Damage Number")
+@export var damage_number_spawn_node : Node2D
+@export var self_damage_number_spawn_node : Node2D
+
 var current_attack_board : ArrowBoard
 var is_round_start : bool = false
 
+const uccp := preload("res://godot_gas/upgrade_cards/upgrade_card_calculation.gd")
+
 func spawn_board() -> void:
-	var payload : ga_spawn_arrow_board.SpawnArrowBoardPayload = ga_spawn_arrow_board.SpawnArrowBoardPayload.new(self, loc_node, tags.Arrowboard_Normal)
-	asc.send_gameplay_event(tags.Ability_Spawnarrowboard_Input, payload)
+	if is_round_start:
+		var payload : ga_spawn_arrow_board.SpawnArrowBoardPayload = ga_spawn_arrow_board.SpawnArrowBoardPayload.new(self, loc_node, tags.Arrowboard_Normal)
+		asc.send_gameplay_event(tags.Ability_Spawnarrowboard_Input, payload)
 
 func destroy_board() -> void:
 	if is_instance_valid(current_attack_board):
 		current_attack_board.queue_free()
+	current_attack_board = null
 
 func process_input(event: InputEvent) -> void:
 	if is_instance_valid(current_attack_board):
 		current_attack_board.Logic._input(event)
 
+func handle_cards_arrow_input(in_payload : uccp.ArrowInputPayload) -> void:
+	if is_instance_valid(card_manager):
+		for active_card in card_manager.active_cards:
+			var card : UpgradeCard = active_card.get_effect_def()
+			if is_instance_valid(card):
+				in_payload.Card = card
+				card.handle_arrow_input(in_payload, asc, enemy_manager.current_enemy.get_ability_component())
+
+func handle_cards_board_finish(in_payload : uccp.ArrowBoardFinishPayload) -> void:
+	if is_instance_valid(card_manager):
+		for active_card in card_manager.active_cards:
+			var card : UpgradeCard = active_card.get_effect_def()
+			if is_instance_valid(card):
+				in_payload.Card = card
+				card.handle_arrow_finish(in_payload, asc, enemy_manager.current_enemy.get_ability_component())
+
 func _attack_board_press(Index : int, ArrowDirection : enums.ArrowDirection, ArrowResult : enums.ArrowState) -> void:
 	if ArrowResult == enums.ArrowState.Wrong:
 		asc.apply_gameplay_effect(wrong_damage_effect)
+	handle_cards_arrow_input(uccp.ArrowInputPayload.new(null, Index, ArrowDirection, ArrowResult))
 
 func _attack_board_finish(ArrowDirections : Array[enums.ArrowDirection], ArrowResults : Array[enums.ArrowState], TimeRemain : float) -> void:
 	if !is_round_start:
@@ -53,6 +79,7 @@ func _attack_board_finish(ArrowDirections : Array[enums.ArrowDirection], ArrowRe
 		var context = GameplayEffectContext.new(instigator)
 		var spec = GameplayEffectSpec.new(attack_effect, context, damage)
 		asc.apply_effect_spec_to_target(spec, enemy_manager.current_enemy.get_ability_component())
+	handle_cards_board_finish(uccp.ArrowBoardFinishPayload.new(null, ArrowDirections, ArrowResults, TimeRemain))
 	spawn_board()
 
 func update_current_attack_board(event_tag: StringName, payload: Variant) -> void:
