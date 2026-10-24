@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dbqoiqamlax01" path="res://Prefabs/UpgradeCardVisual.tscn" id="1_2iawn"]
 [ext_resource type="Script" uid="uid://br6ljtl8ebqwq" path="res://Scripts/UI/store_item.gd" id="1_wrud3"]
-[ext_resource type="Texture2D" uid="uid://dww4knvqk5pjy" path="res://Textures/T_Coin.png" id="2_omtxd"]
+[ext_resource type="Texture2D" uid="uid://dww4knvqk5pjy" path="res://Textures/UI/T_Coin.png" id="2_omtxd"]
 
 [node name="StoreItem" type="PanelContainer" unique_id=197851065 node_paths=PackedStringArray("price_label", "upgrade_card_visual", "interact_button")]
 anchors_preset = 8

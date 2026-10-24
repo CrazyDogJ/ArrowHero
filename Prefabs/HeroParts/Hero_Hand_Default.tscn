@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://55swfffwiuk"]
-
-[ext_resource type="Texture2D" uid="uid://bjemnw150hr4b" path="res://Textures/Hero/default_hero_hand.png" id="1_xp854"]
-
-[node name="Hand" type="Polygon2D" unique_id=423281136]
-texture = ExtResource("1_xp854")
-texture_scale = Vector2(1.5, 1.5)
-polygon = PackedVector2Array(23.422058, 3.4700422, 4.2121277, 40.289063, 11.415848, 75.90746, 55.838806, 77.50829, 86.654724, 44.29113, 78.65059, 8.272523)
-uv = PackedVector2Array(23.422058, 3.4700422, 4.2121277, 40.289063, 11.415848, 75.90746, 55.838806, 77.50829, 86.654724, 44.29113, 78.65059, 8.272523)

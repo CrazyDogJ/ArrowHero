@@ -94,6 +94,7 @@ func set_target_distance(target_distance : int) -> void:
 func route_node_complete() -> void:
 	pause_round()
 	route_run.complete_encounter(route_run.pending_id)
+	SaveGameManager.save_game()
 	create_route_map_widget()
 		
 func reach_goal() -> void:
@@ -159,8 +160,8 @@ func create_route_map_widget() -> void:
 
 func _ready() -> void:
 	GlobalVars.round_time = self
-	if SaveGameManager.current_save_data.has(get_class()):
-		load_game(SaveGameManager.current_save_data[get_class()])
+	if SaveGameManager.current_save_data.has(get_script().get_global_name()):
+		load_game(SaveGameManager.current_save_data[get_script().get_global_name()])
 	else:
 		new_route_run().new_run()
 	route_run.encounter_requested.connect(_encounter_requested)

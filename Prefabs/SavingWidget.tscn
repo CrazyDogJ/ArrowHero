@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bh64safpfhp8m"]
+
+[ext_resource type="Script" uid="uid://decmvtbgp2m73" path="res://Scripts/UI/saving_widget.gd" id="1_5picm"]
+[ext_resource type="Shader" uid="uid://ch6fud7pwlp4d" path="res://Shaders/saving_blink.gdshader" id="2_0kau5"]
+[ext_resource type="Texture2D" uid="uid://bo2nk56k07b5i" path="res://Textures/UI/T_SavingIcon.png" id="3_pvr3g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xchmw"]
+shader = ExtResource("2_0kau5")
+shader_parameter/sin_phase = 1.0
+shader_parameter/opacity_range = Vector2(0.2, 1)
+
+[node name="SavingWidget" type="Control" unique_id=541215397 node_paths=PackedStringArray("saving_label", "saving_icon")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+script = ExtResource("1_5picm")
+saving_label = NodePath("VBoxContainer/Label")
+saving_icon = NodePath("VBoxContainer/TextureRect")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=236057618]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=541901205]
+process_mode = 3
+material = SubResource("ShaderMaterial_xchmw")
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_pvr3g")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=281344315]
+layout_mode = 2
+text = "Saving..."
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -17,6 +17,8 @@
 [ext_resource type="Resource" uid="uid://dnx51uhypf2b3" path="res://godot_gas/upgrade_cards/ge_damaged_hourglass.tres" id="15_o7xy3"]
 [ext_resource type="Resource" uid="uid://cgflkb7fs4luq" path="res://godot_gas/upgrade_cards/ge_bandage.tres" id="16_o7xy3"]
 [ext_resource type="Resource" uid="uid://d3wtnqus6ecrt" path="res://godot_gas/upgrade_cards/ge_right_arrow_badge.tres" id="17_qm8rn"]
+[ext_resource type="Resource" uid="uid://couejagf4qdni" path="res://godot_gas/upgrade_cards/ge_double_right_sword.tres" id="18_aw6xh"]
+[ext_resource type="Resource" uid="uid://dppuc1f8slflj" path="res://godot_gas/upgrade_cards/ge_double_edged_sword.tres" id="19_tkui5"]
 
 [sub_resource type="Resource" id="Resource_t7w7j"]
 script = ExtResource("11_wuv02")
@@ -47,5 +49,5 @@ attribute_sets = Array[ExtResource("8_qm8rn")]([ExtResource("9_aw6xh"), ExtResou
 
 [node name="UpgradeCardsManager" type="Node" parent="." unique_id=1139941984]
 script = ExtResource("13_8afax")
-init_cards = Array[ExtResource("14_08l6w")]([ExtResource("15_o7xy3"), ExtResource("16_o7xy3"), ExtResource("17_qm8rn")])
+init_cards = Array[ExtResource("14_08l6w")]([ExtResource("15_o7xy3"), ExtResource("16_o7xy3"), ExtResource("17_qm8rn"), ExtResource("18_aw6xh"), ExtResource("19_tkui5")])
 metadata/_custom_type_script = "uid://dopimpgcd72nk"

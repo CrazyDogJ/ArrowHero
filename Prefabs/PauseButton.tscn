@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://mt3gqsvuof7i"]
 
-[ext_resource type="Texture2D" uid="uid://nbqfn8w2bsp3" path="res://Textures/T_Pause.png" id="1_8gcrg"]
+[ext_resource type="Texture2D" uid="uid://nbqfn8w2bsp3" path="res://Textures/UI/T_Pause.png" id="1_8gcrg"]
 [ext_resource type="Script" uid="uid://wxwg1rn6lik1" path="res://Scripts/UI/PauseMenu/pause_button.gd" id="2_wij6b"]
-[ext_resource type="Texture2D" uid="uid://daxjj11n06s8h" path="res://Textures/T_Unpause.png" id="3_c7xyp"]
+[ext_resource type="Texture2D" uid="uid://daxjj11n06s8h" path="res://Textures/UI/T_Unpause.png" id="3_c7xyp"]
 
 [node name="PauseButton" type="Button" unique_id=555581016]
 propagate_maximum_size = true

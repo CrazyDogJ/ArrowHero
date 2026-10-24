@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://dppuc1f8slflj"]
+
+[ext_resource type="Texture2D" uid="uid://by1yntw8qfw7a" path="res://Textures/CardIcons/T_Double_Edge_Sword.png" id="1_ppgjb"]
+[ext_resource type="Script" uid="uid://b7ovihaaijli7" path="res://addons/GodotGAS/effects/gameplay_execution_calculation.gd" id="1_ppn0b"]
+[ext_resource type="Script" uid="uid://bcow77l0bnh0s" path="res://addons/GodotGAS/effects/gameplay_effect_modifier.gd" id="2_jb83t"]
+[ext_resource type="Script" uid="uid://dwmyx67pysw2w" path="res://godot_gas/upgrade_cards/upgrade_card.gd" id="3_au43b"]
+[ext_resource type="Resource" uid="uid://bk064fqreokdd" path="res://godot_gas/effects/ge_attack.tres" id="4_au43b"]
+[ext_resource type="Script" uid="uid://cse7intq8tfck" path="res://godot_gas/upgrade_cards/upgrade_card_calculations/ucc_wrong_detect.gd" id="5_ppgjb"]
+
+[sub_resource type="Resource" id="Resource_3g8ai"]
+script = ExtResource("2_jb83t")
+attribute_name = "wrong_damage"
+magnitude = 1.0
+metadata/_custom_type_script = "uid://bcow77l0bnh0s"
+
+[sub_resource type="Resource" id="Resource_ppn0b"]
+script = ExtResource("5_ppgjb")
+gameplay_effect = ExtResource("4_au43b")
+metadata/_custom_type_script = "uid://cse7intq8tfck"
+
+[resource]
+script = ExtResource("3_au43b")
+card_name = "Double Edged Sword"
+card_icon = ExtResource("1_ppgjb")
+card_base_price = 38
+card_floating_price = 8
+card_store_weight = 0.5
+upgrade_card_calculation = SubResource("Resource_ppn0b")
+policy = 2
+modifiers = Array[ExtResource("2_jb83t")]([SubResource("Resource_3g8ai")])
+metadata/_custom_type_script = "uid://dwmyx67pysw2w"

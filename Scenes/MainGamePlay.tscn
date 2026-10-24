@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://2qj1greqa8br"]
 
+[ext_resource type="PackedScene" uid="uid://db6f3ibauwqnd" path="res://Prefabs/DeadVisual.tscn" id="2_oiibt"]
 [ext_resource type="PackedScene" uid="uid://bft4bnlyhrp1m" path="res://Prefabs/Player.tscn" id="2_v324j"]
 [ext_resource type="Script" uid="uid://cr6wk6x2nfwpo" path="res://Scripts/UI/display_seed.gd" id="6_l455d"]
 [ext_resource type="PackedScene" uid="uid://ccrbl4xam7c5u" path="res://Prefabs/BranchRoute/BranchRoute.tscn" id="8_v324j"]
@@ -24,6 +25,7 @@ grow_vertical = 2
 [node name="Player" parent="." unique_id=1115757612 node_paths=PackedStringArray("loc_node", "enemy_manager", "damage_number_spawn_node", "self_damage_number_spawn_node") instance=ExtResource("2_v324j")]
 loc_node = NodePath("../ArrowBoardSpawnLocation")
 enemy_manager = NodePath("../EnemyManager")
+dead_widget_scene = ExtResource("2_oiibt")
 damage_number_spawn_node = NodePath("../DamageNumberSpawner")
 self_damage_number_spawn_node = NodePath("../SelfDamageNumberSpawner")
 

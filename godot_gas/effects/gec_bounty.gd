@@ -2,7 +2,7 @@ extends GameplayExecutionCalculation
 
 class_name GEC_Bounty
 
-@export var coin_icon : Texture2D = preload("res://Textures/T_Coin.png")
+@export var coin_icon : Texture2D = preload("res://Textures/UI/T_Coin.png")
 
 func execute(spec: GameplayEffectSpec, target_asc: AbilitySystemComponent) -> Dictionary:
 	var asc : AbilitySystemComponent = spec.context.causer.get_node("AbilitySystemComponent")

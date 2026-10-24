@@ -10,6 +10,25 @@ var active_cards : Array[ActiveGameplayEffect]
 
 @export var init_cards : Array[UpgradeCard]
 
+func save_game() -> Dictionary:
+	var save_data : Dictionary
+	save_data.get_or_add("active_cards", get_cards_path())
+	return save_data
+	
+func load_game(in_data : Dictionary) -> void:
+	var cards : Array[String]
+	cards.assign(in_data.get("active_cards"))
+	clear_cards()
+	for card_path in cards:
+		var card_object : UpgradeCard = load(card_path) as UpgradeCard
+		add_card(card_object)
+	
+func get_cards_path() -> Array[String]:
+	var result : Array[String]
+	for card in active_cards:
+		result.push_back(card.get_effect_def().resource_path)
+	return result
+	
 func get_cards() -> Array[UpgradeCard]:
 	var result : Array[UpgradeCard]
 	for card in active_cards:
@@ -47,3 +66,9 @@ func remove_card(active_effect : ActiveGameplayEffect) -> void:
 	if is_instance_valid(active_effect):
 		asc.remove_active_effect(active_effect)
 		active_cards.erase(active_effect)
+		
+func clear_cards() -> void:
+	var current_cards : Array[ActiveGameplayEffect]
+	current_cards.assign(active_cards)
+	for card in current_cards:
+		remove_card(card)

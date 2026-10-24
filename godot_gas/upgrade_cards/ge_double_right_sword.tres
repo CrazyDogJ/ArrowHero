@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://couejagf4qdni"]
+
+[ext_resource type="Texture2D" uid="uid://dbpumthstxxds" path="res://Textures/CardIcons/T_Double_Right_Sword.png" id="1_e3ol5"]
+[ext_resource type="Script" uid="uid://b7ovihaaijli7" path="res://addons/GodotGAS/effects/gameplay_execution_calculation.gd" id="1_hkmeq"]
+[ext_resource type="Script" uid="uid://bcow77l0bnh0s" path="res://addons/GodotGAS/effects/gameplay_effect_modifier.gd" id="2_gabwg"]
+[ext_resource type="Script" uid="uid://dwmyx67pysw2w" path="res://godot_gas/upgrade_cards/upgrade_card.gd" id="3_snqd6"]
+[ext_resource type="Script" uid="uid://4maat6kqliur" path="res://godot_gas/upgrade_cards/upgrade_card_calculations/ucc_arrow_sequence_detect.gd" id="4_gabwg"]
+[ext_resource type="Resource" uid="uid://bk064fqreokdd" path="res://godot_gas/effects/ge_attack.tres" id="4_snqd6"]
+
+[sub_resource type="Resource" id="Resource_gabwg"]
+script = ExtResource("4_gabwg")
+gameplay_effect = ExtResource("4_snqd6")
+gameplay_effect_level = 2.0
+arrow_sequence = Array[int]([2, 2])
+metadata/_custom_type_script = "uid://4maat6kqliur"
+
+[resource]
+script = ExtResource("3_snqd6")
+card_name = "Double Right Sword"
+card_icon = ExtResource("1_e3ol5")
+card_base_price = 32
+card_floating_price = 5
+card_store_weight = 0.8
+upgrade_card_calculation = SubResource("Resource_gabwg")
+policy = 2
+metadata/_custom_type_script = "uid://dwmyx67pysw2w"

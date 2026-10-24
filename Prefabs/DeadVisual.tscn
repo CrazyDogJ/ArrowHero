@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://db6f3ibauwqnd"]
+
+[ext_resource type="Script" uid="uid://doni4bc0nv2wm" path="res://Scripts/UI/PauseMenu/main_menu_button.gd" id="1_m3uyb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajg3d"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Control" type="Control" unique_id=1437978509]
+process_mode = 3
+z_index = 999
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1765033727]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ajg3d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=550044952]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=761711068]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "You are smashed, my hero!"
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2086650763]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Main Menu"
+script = ExtResource("1_m3uyb")
+need_save = false

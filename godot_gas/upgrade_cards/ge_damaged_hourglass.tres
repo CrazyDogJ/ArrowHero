@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeCard" format=3 uid="uid://dnx51uhypf2b3"]
 
 [ext_resource type="Script" uid="uid://b7ovihaaijli7" path="res://addons/GodotGAS/effects/gameplay_execution_calculation.gd" id="1_wiq83"]
-[ext_resource type="Texture2D" uid="uid://j5g4m0ytx773" path="res://Textures/T_Cracked_Hourglass.png" id="1_yde1y"]
+[ext_resource type="Texture2D" uid="uid://j5g4m0ytx773" path="res://Textures/CardIcons/T_Cracked_Hourglass.png" id="1_yde1y"]
 [ext_resource type="Script" uid="uid://bcow77l0bnh0s" path="res://addons/GodotGAS/effects/gameplay_effect_modifier.gd" id="2_yde1y"]
 [ext_resource type="Script" uid="uid://dwmyx67pysw2w" path="res://godot_gas/upgrade_cards/upgrade_card.gd" id="3_2c04t"]
 [ext_resource type="Script" uid="uid://cnabcfh8fs438" path="res://godot_gas/upgrade_cards/upgrade_card_calculations/ucc_time_remain_damage.gd" id="4_cswu7"]

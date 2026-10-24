@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b3f0a45cr4rk7"]
 
-[ext_resource type="PackedScene" uid="uid://55swfffwiuk" path="res://Prefabs/HeroParts/Hero_Hand_Default.tscn" id="1_js767"]
-[ext_resource type="PackedScene" uid="uid://cndncgdu4141l" path="res://Prefabs/HeroParts/Hero_Head_Default.tscn" id="1_p0iqm"]
-[ext_resource type="PackedScene" uid="uid://bwxjk25qqpf4s" path="res://Prefabs/HeroParts/Hero_Foot_Default.tscn" id="2_0or0f"]
-[ext_resource type="PackedScene" uid="uid://d0j4sa2g4o7u8" path="res://Prefabs/HeroParts/Hero_Body_Default.tscn" id="3_3kake"]
+[ext_resource type="Texture2D" uid="uid://bjemnw150hr4b" path="res://Textures/Hero/default_hero_hand.png" id="1_6n07h"]
+[ext_resource type="Script" uid="uid://dc7ihav4jjbxv" path="res://Scripts/CharCustomize/char_visual.gd" id="1_oufib"]
+[ext_resource type="PackedScene" uid="uid://cskr30w65cda0" path="res://Prefabs/HeroParts/DefaultHeroHead.tscn" id="2_605ko"]
+[ext_resource type="Texture2D" uid="uid://de3y25vfq5uhk" path="res://Textures/Hero/default_hero_feet.png" id="2_oufib"]
+[ext_resource type="Texture2D" uid="uid://cqxu56pumj5q0" path="res://Textures/Hero/default_hero_body.png" id="3_605ko"]
 [ext_resource type="Animation" uid="uid://qs3ukkruy0w0" path="res://Animations/idle.anim" id="5_0or0f"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bfw1xbha10k4d" path="res://Animations/player_state_machine.tres" id="5_6n07h"]
 [ext_resource type="Animation" uid="uid://stm7wxa23anh" path="res://Animations/run.anim" id="7_6n07h"]
@@ -164,71 +165,80 @@ _data = {
 &"run": ExtResource("7_6n07h")
 }
 
-[node name="PlayerVisual" type="Node2D" unique_id=315064206]
-
-[node name="Polygons" type="Node2D" parent="." unique_id=1830225261]
-
-[node name="Hand_L" parent="Polygons" unique_id=423281136 instance=ExtResource("1_js767")]
-position = Vector2(35.787872, -112.48419)
-skeleton = NodePath("../../Skeleton2D")
-bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Body/Hand_L", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5), "Body/Hand_R", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Body/Foot_L", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Body/Foot_R", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
-
-[node name="Foot_L" parent="Polygons" unique_id=1022526864 instance=ExtResource("2_0or0f")]
-position = Vector2(-4.2121277, -4.484192)
-skeleton = NodePath("../../Skeleton2D")
-bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Body/Hand_L", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Body/Hand_R", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Body/Foot_L", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5), "Body/Foot_R", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)]
-
-[node name="Body" parent="Polygons" unique_id=1766299217 instance=ExtResource("3_3kake")]
-position = Vector2(-134.21213, -186.48419)
-skeleton = NodePath("../../Skeleton2D")
-bones = ["Body", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0), "Body/Hand_L", PackedFloat32Array(0, 0, 0, 0, 0), "Body/Hand_R", PackedFloat32Array(0, 0, 0, 0, 0), "Body/Foot_L", PackedFloat32Array(0, 0, 0, 0, 0), "Body/Foot_R", PackedFloat32Array(0, 0, 0, 0, 0)]
-
-[node name="Head" parent="Polygons" unique_id=1559635212 instance=ExtResource("1_p0iqm")]
-position = Vector2(-130.21213, -329.4842)
-skeleton = NodePath("../../Skeleton2D")
-bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5), "Body/Hand_L", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Hand_R", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Foot_L", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Foot_R", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
-
-[node name="Hand_R" parent="Polygons" unique_id=902451956 instance=ExtResource("1_js767")]
-position = Vector2(-133.21213, -110.48419)
-skeleton = NodePath("../../Skeleton2D")
-bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Body/Hand_L", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Body/Hand_R", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5), "Body/Foot_L", PackedFloat32Array(0, 0, 0, 0, 0, 0), "Body/Foot_R", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
-
-[node name="Foot_R" parent="Polygons" unique_id=836661287 instance=ExtResource("2_0or0f")]
-position = Vector2(-99.21213, -4.484192)
-skeleton = NodePath("../../Skeleton2D")
-bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Body/Hand_L", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Body/Hand_R", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Body/Foot_L", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0), "Body/Foot_R", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5)]
+[node name="PlayerVisual" type="Node2D" unique_id=315064206 node_paths=PackedStringArray("head_pivot")]
+script = ExtResource("1_oufib")
+head_pivot = NodePath("Skeleton2D/Body/Head/Head_Sprite")
+head_prefab = ExtResource("2_605ko")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=945107552]
 
 [node name="Body" type="Bone2D" parent="Skeleton2D" unique_id=1296550270]
 rest = Transform2D(1, 0, 0, 1, 0, 0)
 
-[node name="Head" type="Bone2D" parent="Skeleton2D/Body" unique_id=1446773969]
-position = Vector2(-1, -122)
-rest = Transform2D(1, 0, 0, 1, -1, -122)
-
 [node name="Hand_L" type="Bone2D" parent="Skeleton2D/Body" unique_id=1069500470]
 position = Vector2(83, -74)
 rest = Transform2D(1, 0, 0, 1, 83, -74)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
 
-[node name="Hand_R" type="Bone2D" parent="Skeleton2D/Body" unique_id=1420451206]
-position = Vector2(-90, -72)
-rest = Transform2D(1, 0, 0, 1, -90, -72)
+[node name="Hand_L_Sprite" type="Sprite2D" parent="Skeleton2D/Body/Hand_L" unique_id=1993142669]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_6n07h")
 
 [node name="Foot_L" type="Bone2D" parent="Skeleton2D/Body" unique_id=1414991762]
 position = Vector2(40, 30)
 scale = Vector2(0.9999999, 0.9999999)
 rest = Transform2D(1, 0, 0, 1, 40, 30)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="Foot_L_Sprite" type="Sprite2D" parent="Skeleton2D/Body/Foot_L" unique_id=2059781165]
+position = Vector2(19.000002, 14.000001)
+texture = ExtResource("2_oufib")
+
+[node name="Body_Sprite" type="Sprite2D" parent="Skeleton2D/Body" unique_id=180179693]
+position = Vector2(0, -76)
+texture = ExtResource("3_605ko")
+
+[node name="Head" type="Bone2D" parent="Skeleton2D/Body" unique_id=1446773969]
+position = Vector2(-1, -122)
+rest = Transform2D(1, 0, 0, 1, -1, -122)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="Head_Sprite" type="Node2D" parent="Skeleton2D/Body/Head" unique_id=349772196]
+position = Vector2(-2, -77)
+
+[node name="Hand_R" type="Bone2D" parent="Skeleton2D/Body" unique_id=1420451206]
+position = Vector2(-90, -72)
+rest = Transform2D(1, 0, 0, 1, -90, -72)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="Hand_R_Sprite" type="Sprite2D" parent="Skeleton2D/Body/Hand_R" unique_id=1762742256]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_6n07h")
 
 [node name="Foot_R" type="Bone2D" parent="Skeleton2D/Body" unique_id=1683472007]
 position = Vector2(-53, 27)
-scale = Vector2(0.9999999, 0.9999999)
+scale = Vector2(0.99999994, 0.99999994)
 rest = Transform2D(1, 0, 0, 1, -53, 27)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="Foot_R_Sprite" type="Sprite2D" parent="Skeleton2D/Body/Foot_R" unique_id=114237182]
+position = Vector2(21.000002, 21.000004)
+texture = ExtResource("2_oufib")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1101819576]
+libraries/ = SubResource("AnimationLibrary_3kake")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=2040001872]
 tree_root = ExtResource("5_6n07h")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Move/blend_position = 0.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1101819576]
-libraries/ = SubResource("AnimationLibrary_3kake")
+parameters/Move/blend_position = -0.33675373

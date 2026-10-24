@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://bwxjk25qqpf4s"]
-
-[ext_resource type="Texture2D" uid="uid://de3y25vfq5uhk" path="res://Textures/Hero/default_hero_feet.png" id="1_b30by"]
-
-[node name="Foot" type="Polygon2D" unique_id=423281136]
-texture = ExtResource("1_b30by")
-texture_scale = Vector2(1.1, 1.1)
-polygon = PackedVector2Array(20.671616, 10.58372, 9.09539, 65.157364, 22.656113, 114.76976, 98.06696, 106.17028, 103.028206, 63.503613, 74.25301, 48.95064, 68.29952, 8.929973)
-uv = PackedVector2Array(20.671616, 10.58372, 9.09539, 65.157364, 22.656113, 114.76976, 98.06696, 106.17028, 103.028206, 63.503613, 74.25301, 48.95064, 68.29952, 8.929973)

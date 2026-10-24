@@ -15,6 +15,8 @@ const ga_spawn_arrow_board = preload("res://godot_gas/abilities/ga_spawn_arrow_b
 @onready var asc : AbilitySystemComponent = $AbilitySystemComponent
 @onready var card_manager : UpgradeCardsManager = $UpgradeCardsManager
 
+@export var dead_widget_scene : PackedScene
+
 @export_category("Ability System")
 @export var abilities : Array[PackedScene]
 @export var effects : Array[GameplayEffect]
@@ -30,6 +32,44 @@ var current_attack_board : ArrowBoard
 var is_round_start : bool = false
 
 const uccp := preload("res://godot_gas/upgrade_cards/upgrade_card_calculation.gd")
+
+func save_attribute_sets() -> Dictionary[String,Dictionary]:
+	var aset_save_dictionary : Dictionary[String,Dictionary]
+	for aset in asc.attribute_sets:
+		var aset_save : Dictionary[String,float]
+		for property in aset.get_property_list():
+			if property["class_name"] == StringName("AttributeData"):
+				var property_name : String = property.name
+				var property_current_value : float = aset.get(property_name).current_value
+				aset_save.get_or_add(property_name, property_current_value)
+		aset_save_dictionary.get_or_add(aset.get_script().get_global_name(), aset_save)
+	return aset_save_dictionary
+	
+func load_attribute_sets(in_data : Dictionary) -> void:
+	var attribute_sets_data : Dictionary[String,Dictionary]
+	attribute_sets_data.assign(in_data)
+	for aset in asc.attribute_sets:
+		var found_aset_data : Dictionary[String,float]
+		found_aset_data.assign(attribute_sets_data.get(aset.get_script().get_global_name()))
+		for attribute_name in found_aset_data.keys():
+			var attr : AttributeData = aset.get(attribute_name)
+			attr.current_value = found_aset_data[attribute_name]
+	
+func save_game() -> Dictionary:
+	var save_data : Dictionary
+	if is_instance_valid(card_manager):
+		var card_manager_datas := card_manager.save_game()
+		save_data.get_or_add("card_manager_datas", card_manager_datas)
+	if is_instance_valid(asc):
+		var attribute_set_datas := save_attribute_sets()
+		save_data.get_or_add("attribute_set_datas", attribute_set_datas)
+	return save_data
+	
+func load_game(in_data : Dictionary) -> void:
+	if is_instance_valid(card_manager):
+		card_manager.load_game(in_data.get("card_manager_datas"))
+	if is_instance_valid(asc):
+		load_attribute_sets(in_data.get("attribute_set_datas"))
 
 func spawn_board() -> void:
 	if is_round_start:
@@ -94,10 +134,19 @@ func update_current_attack_board(event_tag: StringName, payload: Variant) -> voi
 func _gameplay_event_received(event_tag: StringName, payload: Variant) -> void:
 	update_current_attack_board(event_tag, payload)
 
+func dead() -> void:
+	get_tree().paused = true
+	if dead_widget_scene.can_instantiate():
+		var new_dead_widget := dead_widget_scene.instantiate()
+		get_tree().current_scene.add_child(new_dead_widget)
+
 func _on_attribute_change(attribute_name: String, old_value: float, new_value: float, effect_spec: GameplayEffectSpec) -> void:
 	if attribute_name == "current_health":
 		if new_value <= 0:
-			print("dead")
+			dead()
+			
+func _init() -> void:
+	add_to_group("Persist")
 			
 func _ready() -> void:
 	for ab in abilities:
@@ -107,6 +156,8 @@ func _ready() -> void:
 		asc.apply_gameplay_effect(ef, asc, 1.0)
 	asc.gameplay_event_received.connect(_gameplay_event_received)
 	asc.attribute_changed.connect(_on_attribute_change)
+	if SaveGameManager.current_save_data.has(get_script().get_global_name()):
+		load_game(SaveGameManager.current_save_data[get_script().get_global_name()])
 
 func _input(event: InputEvent) -> void:
 	if ah_inputs.is_inputting_arrow_keys(event):

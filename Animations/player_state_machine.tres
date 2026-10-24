@@ -2,16 +2,13 @@
 
 [ext_resource type="AnimationNodeBlendSpace1D" uid="uid://d0mdso1ix0rxx" path="res://Animations/idle_run_blend_space_1d.tres" id="1_0axbq"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tnv5r"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nmgmr"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0axbq"]
 advance_mode = 2
 
 [resource]
 states/End/position = Vector2(682, 135)
 states/Move/node = ExtResource("1_0axbq")
-states/Move/position = Vector2(531, 135)
-states/Start/position = Vector2(364, 135)
-transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_tnv5r"), "Move", "End", SubResource("AnimationNodeStateMachineTransition_nmgmr")]
-graph_offset = Vector2(41, 37)
+states/Move/position = Vector2(517, 135)
+states/Start/position = Vector2(355, 135)
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_0axbq")]
+graph_offset = Vector2(68, 26)

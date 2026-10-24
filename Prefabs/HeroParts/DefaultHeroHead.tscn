@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cskr30w65cda0"]
+
+[ext_resource type="Script" uid="uid://swb1s8umtxly" path="res://Scripts/CharCustomize/head_desc.gd" id="1_gfb3r"]
+[ext_resource type="Texture2D" uid="uid://dqec0aybdtmnh" path="res://Textures/Hero/default_hero_head.png" id="2_2yj84"]
+[ext_resource type="Texture2D" uid="uid://cf3dib8gdr61b" path="res://Textures/Hero/default_hero_eye_open.png" id="3_0e5tn"]
+[ext_resource type="Texture2D" uid="uid://bk2hmnfjsyrj8" path="res://Textures/Hero/default_hero_eye_close.png" id="3_ronv2"]
+[ext_resource type="Texture2D" uid="uid://cwsxeggmshl8h" path="res://Textures/Hero/default_hero_mouth_idle.png" id="4_ronv2"]
+[ext_resource type="Texture2D" uid="uid://dsvpfshgikr4r" path="res://Textures/Hero/default_hero_mouth_open.png" id="5_edrg8"]
+
+[node name="DefaultHeroHead" type="Node2D" unique_id=1687016357 node_paths=PackedStringArray("eye_l_sprite", "eye_r_sprite", "mouth_sprite")]
+script = ExtResource("1_gfb3r")
+eye_l_sprite = NodePath("Sprite2D/EyeL")
+eye_r_sprite = NodePath("Sprite2D/EyeR")
+mouth_sprite = NodePath("Sprite2D/Mouth")
+eye_l_texture = ExtResource("3_0e5tn")
+eye_r_texture = ExtResource("3_0e5tn")
+eye_l_close_texture = ExtResource("3_ronv2")
+eye_r_close_texture = ExtResource("3_ronv2")
+mouth_idle_texture = ExtResource("4_ronv2")
+mouth_open_texture = ExtResource("5_edrg8")
+speaking_mouth_time = 0.2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=158150244]
+texture = ExtResource("2_2yj84")
+
+[node name="EyeR" type="Sprite2D" parent="Sprite2D" unique_id=1494569227]
+position = Vector2(-9, 21.000004)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_0e5tn")
+
+[node name="EyeL" type="Sprite2D" parent="Sprite2D" unique_id=973996415]
+position = Vector2(29, 21)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_0e5tn")
+
+[node name="Mouth" type="Sprite2D" parent="Sprite2D" unique_id=1708673487]
+position = Vector2(9, 59)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_ronv2")
